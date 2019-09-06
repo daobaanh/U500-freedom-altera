@@ -1,0 +1,1953 @@
+<html>
+<body>
+<h1 align="center">TR4 FPGA Board Configuration</h1>
+<br />
+<br />
+<h2 align="left">Pin Assignments:</h2>
+<ul>
+<a href="#CLOCK"><li>CLOCK</li></a>
+<br />
+<a href="#Loop"><li>Loop</li></a>
+<br />
+<a href="#LED x 4"><li>LED x 4</li></a>
+<br />
+<a href="#BUTTON x 4"><li>BUTTON x 4</li></a>
+<br />
+<a href="#DDR3 SODIMM"><li>DDR3 SODIMM</li></a>
+<br />
+<a href="#OCT RUP/RDN for Altera DDR3 UniPHY Controller"><li>OCT RUP/RDN for Altera DDR3 UniPHY Controller</li></a>
+<br />
+<a href="#GPIO_1"><li>GPIO_1</li></a>
+<br />
+<a href="#HSMC-F"><li>HSMC-F</li></a>
+<br />
+<a href="#HSMC D/E/F I2C"><li>HSMC D/E/F I2C</li></a>
+<br />
+</ul>
+<br />
+<br />
+<br />
+<h2 align="left">Pin Assignment Table:</h2>
+<h2><a name="CLOCK"></a></h2><table border="3">
+<caption  align="left">CLOCK</caption>
+<br />
+<br />
+<tr>
+   <th align="left" bgcolor="Khaki">Name</th>
+   <th align="left" bgcolor="Khaki">Location</th>
+   <th align="left" bgcolor="Khaki">Direction</th>
+   <th align="left" bgcolor="Khaki">Standard</th>
+</tr>
+<tr>
+   <td align="left">OSC_50_BANK1</td>
+   <td align="left">AB34</td>
+   <td align="left">input </td>
+   <td align="left">2.5 V</td>
+</tr>
+<tr>
+   <td align="left">OSC_50_BANK3</td>
+   <td align="left">AW22</td>
+   <td align="left">input </td>
+   <td align="left">2.5 V</td>
+</tr>
+<tr>
+   <td align="left">OSC_50_BANK4</td>
+   <td align="left">AV19</td>
+   <td align="left">input </td>
+   <td align="left">2.5 V</td>
+</tr>
+<tr>
+   <td align="left">OSC_50_BANK7</td>
+   <td align="left">A21</td>
+   <td align="left">input </td>
+   <td align="left">1.5 V</td>
+</tr>
+<tr>
+   <td align="left">OSC_50_BANK8</td>
+   <td align="left">B23</td>
+   <td align="left">input </td>
+   <td align="left">1.5 V</td>
+</tr>
+</table>
+<h2><a name="Loop"></a></h2><table border="3">
+<caption  align="left">Loop</caption>
+<br />
+<br />
+<tr>
+   <th align="left" bgcolor="Khaki">Name</th>
+   <th align="left" bgcolor="Khaki">Location</th>
+   <th align="left" bgcolor="Khaki">Direction</th>
+   <th align="left" bgcolor="Khaki">Standard</th>
+</tr>
+<tr>
+   <td align="left">LOOP_CLKIN0</td>
+   <td align="left">B22</td>
+   <td align="left">input </td>
+   <td align="left">1.5 V</td>
+</tr>
+<tr>
+   <td align="left">LOOP_CLKIN1</td>
+   <td align="left">B20</td>
+   <td align="left">input </td>
+   <td align="left">1.5 V</td>
+</tr>
+<tr>
+   <td align="left">LOOP_CLKOUT0</td>
+   <td align="left">M20</td>
+   <td align="left">output</td>
+   <td align="left">1.5 V</td>
+</tr>
+<tr>
+   <td align="left">LOOP_CLKOUT1</td>
+   <td align="left">L20</td>
+   <td align="left">output</td>
+   <td align="left">1.5 V</td>
+</tr>
+</table>
+<h2><a name="LED x 4"></a></h2><table border="3">
+<caption  align="left">LED x 4</caption>
+<br />
+<br />
+<tr>
+   <th align="left" bgcolor="Khaki">Name</th>
+   <th align="left" bgcolor="Khaki">Location</th>
+   <th align="left" bgcolor="Khaki">Direction</th>
+   <th align="left" bgcolor="Khaki">Standard</th>
+</tr>
+<tr>
+   <td align="left">LED[0]</td>
+   <td align="left">B19</td>
+   <td align="left">output</td>
+   <td align="left">1.5 V</td>
+</tr>
+<tr>
+   <td align="left">LED[1]</td>
+   <td align="left">A18</td>
+   <td align="left">output</td>
+   <td align="left">1.5 V</td>
+</tr>
+<tr>
+   <td align="left">LED[2]</td>
+   <td align="left">D19</td>
+   <td align="left">output</td>
+   <td align="left">1.5 V</td>
+</tr>
+<tr>
+   <td align="left">LED[3]</td>
+   <td align="left">C19</td>
+   <td align="left">output</td>
+   <td align="left">1.5 V</td>
+</tr>
+</table>
+<h2><a name="BUTTON x 4"></a></h2><table border="3">
+<caption  align="left">BUTTON x 4</caption>
+<br />
+<br />
+<tr>
+   <th align="left" bgcolor="Khaki">Name</th>
+   <th align="left" bgcolor="Khaki">Location</th>
+   <th align="left" bgcolor="Khaki">Direction</th>
+   <th align="left" bgcolor="Khaki">Standard</th>
+</tr>
+<tr>
+   <td align="left">BUTTON[0]</td>
+   <td align="left">L19</td>
+   <td align="left">input </td>
+   <td align="left">1.5 V</td>
+</tr>
+<tr>
+   <td align="left">BUTTON[1]</td>
+   <td align="left">M19</td>
+   <td align="left">input </td>
+   <td align="left">1.5 V</td>
+</tr>
+<tr>
+   <td align="left">BUTTON[2]</td>
+   <td align="left">A19</td>
+   <td align="left">input </td>
+   <td align="left">1.5 V</td>
+</tr>
+<tr>
+   <td align="left">BUTTON[3]</td>
+   <td align="left">P20</td>
+   <td align="left">input </td>
+   <td align="left">1.5 V</td>
+</tr>
+</table>
+<h2><a name="DDR3 SODIMM"></a></h2><table border="3">
+<br />
+<br />
+<tr>
+   <th align="left" bgcolor="Khaki">Name</th>
+   <th align="left" bgcolor="Khaki">Location</th>
+   <th align="left" bgcolor="Khaki">Direction</th>
+   <th align="left" bgcolor="Khaki">Standard</th>
+   <th align="left" bgcolor="Khaki">DDR3 SODIMM Pin Index</th>
+</tr>
+<tr>
+   <td align="left">mem_EVENT_n</td>
+   <td align="left">R18</td>
+   <td align="left">input </td>
+   <td align="left">1.5 V</td>
+   <td align="left">198</td>
+</tr>
+<tr>
+   <td align="left">mem_SCL</td>
+   <td align="left">H19</td>
+   <td align="left">output</td>
+   <td align="left">1.5 V</td>
+   <td align="left">202</td>
+</tr>
+<tr>
+   <td align="left">mem_SDA</td>
+   <td align="left">P18</td>
+   <td align="left">inout </td>
+   <td align="left">1.5 V</td>
+   <td align="left">200</td>
+</tr>
+<tr>
+   <td align="left">mem_a[0]</td>
+   <td align="left">N23</td>
+   <td align="left">output</td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">98</td>
+</tr>
+<tr>
+   <td align="left">mem_a[1]</td>
+   <td align="left">C22</td>
+   <td align="left">output</td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">97</td>
+</tr>
+<tr>
+   <td align="left">mem_a[2]</td>
+   <td align="left">M22</td>
+   <td align="left">output</td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">96</td>
+</tr>
+<tr>
+   <td align="left">mem_a[3]</td>
+   <td align="left">D21</td>
+   <td align="left">output</td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">95</td>
+</tr>
+<tr>
+   <td align="left">mem_a[4]</td>
+   <td align="left">P24</td>
+   <td align="left">output</td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">92</td>
+</tr>
+<tr>
+   <td align="left">mem_a[5]</td>
+   <td align="left">A24</td>
+   <td align="left">output</td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">91</td>
+</tr>
+<tr>
+   <td align="left">mem_a[6]</td>
+   <td align="left">M21</td>
+   <td align="left">output</td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">90</td>
+</tr>
+<tr>
+   <td align="left">mem_a[7]</td>
+   <td align="left">D17</td>
+   <td align="left">output</td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">86</td>
+</tr>
+<tr>
+   <td align="left">mem_a[8]</td>
+   <td align="left">A25</td>
+   <td align="left">output</td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">89</td>
+</tr>
+<tr>
+   <td align="left">mem_a[9]</td>
+   <td align="left">N25</td>
+   <td align="left">output</td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">85</td>
+</tr>
+<tr>
+   <td align="left">mem_a[10]</td>
+   <td align="left">C24</td>
+   <td align="left">output</td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">107</td>
+</tr>
+<tr>
+   <td align="left">mem_a[11]</td>
+   <td align="left">N21</td>
+   <td align="left">output</td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">84</td>
+</tr>
+<tr>
+   <td align="left">mem_a[12]</td>
+   <td align="left">M25</td>
+   <td align="left">output</td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">83</td>
+</tr>
+<tr>
+   <td align="left">mem_a[13]</td>
+   <td align="left">K26</td>
+   <td align="left">output</td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">119</td>
+</tr>
+<tr>
+   <td align="left">mem_a[14]</td>
+   <td align="left">F16</td>
+   <td align="left">output</td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">80</td>
+</tr>
+<tr>
+   <td align="left">mem_a[15]</td>
+   <td align="left">R20</td>
+   <td align="left">output</td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">78</td>
+</tr>
+<tr>
+   <td align="left">mem_ba[0]</td>
+   <td align="left">B26</td>
+   <td align="left">output</td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">109</td>
+</tr>
+<tr>
+   <td align="left">mem_ba[1]</td>
+   <td align="left">A29</td>
+   <td align="left">output</td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">108</td>
+</tr>
+<tr>
+   <td align="left">mem_ba[2]</td>
+   <td align="left">R24</td>
+   <td align="left">output</td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">79</td>
+</tr>
+<tr>
+   <td align="left">mem_cas_n</td>
+   <td align="left">L26</td>
+   <td align="left">output</td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">115</td>
+</tr>
+<tr>
+   <td align="left">mem_ck[0]</td>
+   <td align="left">K27</td>
+   <td align="left">output</td>
+   <td align="left">Differential 1.5-V SSTL Class I</td>
+   <td align="left">101</td>
+</tr>
+<tr>
+   <td align="left">mem_ck[1]</td>
+   <td align="left">L25</td>
+   <td align="left">output</td>
+   <td align="left">Differential 1.5-V SSTL Class I</td>
+   <td align="left">102</td>
+</tr>
+<tr>
+   <td align="left">mem_ck_n[0]</td>
+   <td align="left">J27</td>
+   <td align="left">output</td>
+   <td align="left">Differential 1.5-V SSTL Class I</td>
+   <td align="left">103</td>
+</tr>
+<tr>
+   <td align="left">mem_ck_n[1]</td>
+   <td align="left">K28</td>
+   <td align="left">output</td>
+   <td align="left">Differential 1.5-V SSTL Class I</td>
+   <td align="left">104</td>
+</tr>
+<tr>
+   <td align="left">mem_cke[0]</td>
+   <td align="left">P25</td>
+   <td align="left">output</td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">73</td>
+</tr>
+<tr>
+   <td align="left">mem_cke[1]</td>
+   <td align="left">M16</td>
+   <td align="left">output</td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">74</td>
+</tr>
+<tr>
+   <td align="left">mem_cs_n[0]</td>
+   <td align="left">D23</td>
+   <td align="left">output</td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">114</td>
+</tr>
+<tr>
+   <td align="left">mem_cs_n[1]</td>
+   <td align="left">G28</td>
+   <td align="left">output</td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">121</td>
+</tr>
+<tr>
+   <td align="left">mem_dm[0]</td>
+   <td align="left">G16</td>
+   <td align="left">output</td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">11</td>
+</tr>
+<tr>
+   <td align="left">mem_dm[1]</td>
+   <td align="left">N16</td>
+   <td align="left">output</td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">28</td>
+</tr>
+<tr>
+   <td align="left">mem_dm[2]</td>
+   <td align="left">P23</td>
+   <td align="left">output</td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">46</td>
+</tr>
+<tr>
+   <td align="left">mem_dm[3]</td>
+   <td align="left">B29</td>
+   <td align="left">output</td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">63</td>
+</tr>
+<tr>
+   <td align="left">mem_dm[4]</td>
+   <td align="left">H28</td>
+   <td align="left">output</td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">136</td>
+</tr>
+<tr>
+   <td align="left">mem_dm[5]</td>
+   <td align="left">E17</td>
+   <td align="left">output</td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">153</td>
+</tr>
+<tr>
+   <td align="left">mem_dm[6]</td>
+   <td align="left">C26</td>
+   <td align="left">output</td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">170</td>
+</tr>
+<tr>
+   <td align="left">mem_dm[7]</td>
+   <td align="left">E23</td>
+   <td align="left">output</td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">187</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[0]</td>
+   <td align="left">G15</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">5</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[1]</td>
+   <td align="left">F15</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">7</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[2]</td>
+   <td align="left">C16</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">15</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[3]</td>
+   <td align="left">B16</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">17</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[4]</td>
+   <td align="left">G17</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">4</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[5]</td>
+   <td align="left">A16</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">6</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[6]</td>
+   <td align="left">D16</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">16</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[7]</td>
+   <td align="left">E16</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">18</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[8]</td>
+   <td align="left">N17</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">21</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[9]</td>
+   <td align="left">M17</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">23</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[10]</td>
+   <td align="left">K17</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">33</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[11]</td>
+   <td align="left">L16</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">35</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[12]</td>
+   <td align="left">P16</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">22</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[13]</td>
+   <td align="left">P17</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">24</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[14]</td>
+   <td align="left">J17</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">34</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[15]</td>
+   <td align="left">H17</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">36</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[16]</td>
+   <td align="left">N22</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">39</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[17]</td>
+   <td align="left">M23</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">41</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[18]</td>
+   <td align="left">J25</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">51</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[19]</td>
+   <td align="left">M24</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">53</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[20]</td>
+   <td align="left">R22</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">40</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[21]</td>
+   <td align="left">P22</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">42</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[22]</td>
+   <td align="left">K24</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">50</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[23]</td>
+   <td align="left">J24</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">52</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[24]</td>
+   <td align="left">A27</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">57</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[25]</td>
+   <td align="left">A28</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">59</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[26]</td>
+   <td align="left">C29</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">67</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[27]</td>
+   <td align="left">C30</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">69</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[28]</td>
+   <td align="left">C27</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">56</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[29]</td>
+   <td align="left">D27</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">58</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[30]</td>
+   <td align="left">A31</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">68</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[31]</td>
+   <td align="left">B31</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">70</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[32]</td>
+   <td align="left">G27</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">129</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[33]</td>
+   <td align="left">G29</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">131</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[34]</td>
+   <td align="left">F28</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">141</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[35]</td>
+   <td align="left">F27</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">143</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[36]</td>
+   <td align="left">E28</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">130</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[37]</td>
+   <td align="left">D28</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">132</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[38]</td>
+   <td align="left">H26</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">140</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[39]</td>
+   <td align="left">J26</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">142</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[40]</td>
+   <td align="left">F19</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">147</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[41]</td>
+   <td align="left">G19</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">149</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[42]</td>
+   <td align="left">F20</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">157</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[43]</td>
+   <td align="left">G20</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">159</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[44]</td>
+   <td align="left">C17</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">146</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[45]</td>
+   <td align="left">F17</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">148</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[46]</td>
+   <td align="left">C18</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">158</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[47]</td>
+   <td align="left">D18</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">160</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[48]</td>
+   <td align="left">D25</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">163</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[49]</td>
+   <td align="left">C25</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">165</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[50]</td>
+   <td align="left">G24</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">175</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[51]</td>
+   <td align="left">G25</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">177</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[52]</td>
+   <td align="left">B25</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">164</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[53]</td>
+   <td align="left">A26</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">166</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[54]</td>
+   <td align="left">D26</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">174</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[55]</td>
+   <td align="left">F24</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">176</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[56]</td>
+   <td align="left">F23</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">181</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[57]</td>
+   <td align="left">G23</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">183</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[58]</td>
+   <td align="left">J22</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">191</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[59]</td>
+   <td align="left">H22</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">193</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[60]</td>
+   <td align="left">K22</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">180</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[61]</td>
+   <td align="left">D22</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">182</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[62]</td>
+   <td align="left">G22</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">192</td>
+</tr>
+<tr>
+   <td align="left">mem_dq[63]</td>
+   <td align="left">E22</td>
+   <td align="left">inout </td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">194</td>
+</tr>
+<tr>
+   <td align="left">mem_dqs[0]</td>
+   <td align="left">D15</td>
+   <td align="left">inout </td>
+   <td align="left">Differential 1.5-V SSTL Class I</td>
+   <td align="left">12</td>
+</tr>
+<tr>
+   <td align="left">mem_dqs[1]</td>
+   <td align="left">K16</td>
+   <td align="left">inout </td>
+   <td align="left">Differential 1.5-V SSTL Class I</td>
+   <td align="left">29</td>
+</tr>
+<tr>
+   <td align="left">mem_dqs[2]</td>
+   <td align="left">L23</td>
+   <td align="left">inout </td>
+   <td align="left">Differential 1.5-V SSTL Class I</td>
+   <td align="left">47</td>
+</tr>
+<tr>
+   <td align="left">mem_dqs[3]</td>
+   <td align="left">C28</td>
+   <td align="left">inout </td>
+   <td align="left">Differential 1.5-V SSTL Class I</td>
+   <td align="left">64</td>
+</tr>
+<tr>
+   <td align="left">mem_dqs[4]</td>
+   <td align="left">E29</td>
+   <td align="left">inout </td>
+   <td align="left">Differential 1.5-V SSTL Class I</td>
+   <td align="left">137</td>
+</tr>
+<tr>
+   <td align="left">mem_dqs[5]</td>
+   <td align="left">G18</td>
+   <td align="left">inout </td>
+   <td align="left">Differential 1.5-V SSTL Class I</td>
+   <td align="left">154</td>
+</tr>
+<tr>
+   <td align="left">mem_dqs[6]</td>
+   <td align="left">F25</td>
+   <td align="left">inout </td>
+   <td align="left">Differential 1.5-V SSTL Class I</td>
+   <td align="left">171</td>
+</tr>
+<tr>
+   <td align="left">mem_dqs[7]</td>
+   <td align="left">J23</td>
+   <td align="left">inout </td>
+   <td align="left">Differential 1.5-V SSTL Class I</td>
+   <td align="left">188</td>
+</tr>
+<tr>
+   <td align="left">mem_dqs_n[0]</td>
+   <td align="left">C15</td>
+   <td align="left">inout </td>
+   <td align="left">Differential 1.5-V SSTL Class I</td>
+   <td align="left">10</td>
+</tr>
+<tr>
+   <td align="left">mem_dqs_n[1]</td>
+   <td align="left">J16</td>
+   <td align="left">inout </td>
+   <td align="left">Differential 1.5-V SSTL Class I</td>
+   <td align="left">27</td>
+</tr>
+<tr>
+   <td align="left">mem_dqs_n[2]</td>
+   <td align="left">K23</td>
+   <td align="left">inout </td>
+   <td align="left">Differential 1.5-V SSTL Class I</td>
+   <td align="left">45</td>
+</tr>
+<tr>
+   <td align="left">mem_dqs_n[3]</td>
+   <td align="left">B28</td>
+   <td align="left">inout </td>
+   <td align="left">Differential 1.5-V SSTL Class I</td>
+   <td align="left">62</td>
+</tr>
+<tr>
+   <td align="left">mem_dqs_n[4]</td>
+   <td align="left">D29</td>
+   <td align="left">inout </td>
+   <td align="left">Differential 1.5-V SSTL Class I</td>
+   <td align="left">135</td>
+</tr>
+<tr>
+   <td align="left">mem_dqs_n[5]</td>
+   <td align="left">F18</td>
+   <td align="left">inout </td>
+   <td align="left">Differential 1.5-V SSTL Class I</td>
+   <td align="left">152</td>
+</tr>
+<tr>
+   <td align="left">mem_dqs_n[6]</td>
+   <td align="left">E25</td>
+   <td align="left">inout </td>
+   <td align="left">Differential 1.5-V SSTL Class I</td>
+   <td align="left">169</td>
+</tr>
+<tr>
+   <td align="left">mem_dqs_n[7]</td>
+   <td align="left">H23</td>
+   <td align="left">inout </td>
+   <td align="left">Differential 1.5-V SSTL Class I</td>
+   <td align="left">186</td>
+</tr>
+<tr>
+   <td align="left">mem_odt[0]</td>
+   <td align="left">F26</td>
+   <td align="left">output</td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">116</td>
+</tr>
+<tr>
+   <td align="left">mem_odt[1]</td>
+   <td align="left">G26</td>
+   <td align="left">output</td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">120</td>
+</tr>
+<tr>
+   <td align="left">mem_ras_n</td>
+   <td align="left">D24</td>
+   <td align="left">output</td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">110</td>
+</tr>
+<tr>
+   <td align="left">mem_reset_n</td>
+   <td align="left">J18</td>
+   <td align="left">output</td>
+   <td align="left">1.5 V</td>
+   <td align="left">30</td>
+</tr>
+<tr>
+   <td align="left">mem_we_n</td>
+   <td align="left">M27</td>
+   <td align="left">output</td>
+   <td align="left">SSTL-15 Class I</td>
+   <td align="left">113</td>
+</tr>
+</table>
+<h2><a name="OCT RUP/RDN for Altera DDR3 UniPHY Controller"></a></h2><table border="3">
+<caption  align="left">OCT RUP/RDN for Altera DDR3 UniPHY Controller</caption>
+<br />
+<br />
+<tr>
+   <th align="left" bgcolor="Khaki">Name</th>
+   <th align="left" bgcolor="Khaki">Location</th>
+   <th align="left" bgcolor="Khaki">Direction</th>
+   <th align="left" bgcolor="Khaki">Standard</th>
+</tr>
+<tr>
+   <td align="left">mem_oct_rdn</td>
+   <td align="left">N26</td>
+   <td align="left">input </td>
+   <td align="left">1.5 V</td>
+</tr>
+<tr>
+   <td align="left">mem_oct_rup</td>
+   <td align="left">P26</td>
+   <td align="left">input </td>
+   <td align="left">1.5 V</td>
+</tr>
+</table>
+<h2><a name="GPIO_1"></a></h2><table border="3">
+<caption  align="left">GPIO_1 connect to GPIO Default</caption>
+<br />
+<br />
+<tr>
+   <th align="left" bgcolor="Khaki">Name</th>
+   <th align="left" bgcolor="Khaki">Location</th>
+   <th align="left" bgcolor="Khaki">Direction</th>
+   <th align="left" bgcolor="Khaki">Standard</th>
+   <th align="left" bgcolor="Khaki">GPIO Pin Index</th>
+</tr>
+<tr>
+   <td align="left">GPIO[0]</td>
+   <td align="left">AB27</td>
+   <td align="left">inout </td>
+   <td align="left">3.0-V PCI-X</td>
+   <td align="left">1</td>
+</tr>
+<tr>
+   <td align="left">GPIO[1]</td>
+   <td align="left">AE25</td>
+   <td align="left">inout </td>
+   <td align="left">3.0-V PCI-X</td>
+   <td align="left">2</td>
+</tr>
+<tr>
+   <td align="left">GPIO[2]</td>
+   <td align="left">AB28</td>
+   <td align="left">inout </td>
+   <td align="left">3.0-V PCI-X</td>
+   <td align="left">3</td>
+</tr>
+<tr>
+   <td align="left">GPIO[3]</td>
+   <td align="left">AD25</td>
+   <td align="left">inout </td>
+   <td align="left">3.0-V PCI-X</td>
+   <td align="left">4</td>
+</tr>
+<tr>
+   <td align="left">GPIO[4]</td>
+   <td align="left">AP27</td>
+   <td align="left">inout </td>
+   <td align="left">3.0-V PCI-X</td>
+   <td align="left">5</td>
+</tr>
+<tr>
+   <td align="left">GPIO[5]</td>
+   <td align="left">AU29</td>
+   <td align="left">inout </td>
+   <td align="left">3.0-V PCI-X</td>
+   <td align="left">6</td>
+</tr>
+<tr>
+   <td align="left">GPIO[6]</td>
+   <td align="left">AN27</td>
+   <td align="left">inout </td>
+   <td align="left">3.0-V PCI-X</td>
+   <td align="left">7</td>
+</tr>
+<tr>
+   <td align="left">GPIO[7]</td>
+   <td align="left">AT29</td>
+   <td align="left">inout </td>
+   <td align="left">3.0-V PCI-X</td>
+   <td align="left">8</td>
+</tr>
+<tr>
+   <td align="left">GPIO[8]</td>
+   <td align="left">AL25</td>
+   <td align="left">inout </td>
+   <td align="left">3.0-V PCI-X</td>
+   <td align="left">9</td>
+</tr>
+<tr>
+   <td align="left">GPIO[9]</td>
+   <td align="left">AW33</td>
+   <td align="left">inout </td>
+   <td align="left">3.0-V PCI-X</td>
+   <td align="left">10</td>
+</tr>
+<tr>
+   <td align="left">GPIO[10]</td>
+   <td align="left">AP26</td>
+   <td align="left">inout </td>
+   <td align="left">3.0-V PCI-X</td>
+   <td align="left">13</td>
+</tr>
+<tr>
+   <td align="left">GPIO[11]</td>
+   <td align="left">AW34</td>
+   <td align="left">inout </td>
+   <td align="left">3.0-V PCI-X</td>
+   <td align="left">14</td>
+</tr>
+<tr>
+   <td align="left">GPIO[12]</td>
+   <td align="left">AW31</td>
+   <td align="left">inout </td>
+   <td align="left">3.0-V PCI-X</td>
+   <td align="left">15</td>
+</tr>
+<tr>
+   <td align="left">GPIO[13]</td>
+   <td align="left">AH24</td>
+   <td align="left">inout </td>
+   <td align="left">3.0-V PCI-X</td>
+   <td align="left">16</td>
+</tr>
+<tr>
+   <td align="left">GPIO[14]</td>
+   <td align="left">AV31</td>
+   <td align="left">inout </td>
+   <td align="left">3.0-V PCI-X</td>
+   <td align="left">17</td>
+</tr>
+<tr>
+   <td align="left">GPIO[15]</td>
+   <td align="left">AG24</td>
+   <td align="left">inout </td>
+   <td align="left">3.0-V PCI-X</td>
+   <td align="left">18</td>
+</tr>
+<tr>
+   <td align="left">GPIO[16]</td>
+   <td align="left">AL27</td>
+   <td align="left">inout </td>
+   <td align="left">3.0-V PCI-X</td>
+   <td align="left">19</td>
+</tr>
+<tr>
+   <td align="left">GPIO[17]</td>
+   <td align="left">AW27</td>
+   <td align="left">inout </td>
+   <td align="left">3.0-V PCI-X</td>
+   <td align="left">20</td>
+</tr>
+<tr>
+   <td align="left">GPIO[18]</td>
+   <td align="left">AH26</td>
+   <td align="left">inout </td>
+   <td align="left">3.0-V PCI-X</td>
+   <td align="left">21</td>
+</tr>
+<tr>
+   <td align="left">GPIO[19]</td>
+   <td align="left">AW28</td>
+   <td align="left">inout </td>
+   <td align="left">3.0-V PCI-X</td>
+   <td align="left">22</td>
+</tr>
+<tr>
+   <td align="left">GPIO[20]</td>
+   <td align="left">AK27</td>
+   <td align="left">inout </td>
+   <td align="left">3.0-V PCI-X</td>
+   <td align="left">23</td>
+</tr>
+<tr>
+   <td align="left">GPIO[21]</td>
+   <td align="left">AD30</td>
+   <td align="left">inout </td>
+   <td align="left">3.0-V PCI-X</td>
+   <td align="left">24</td>
+</tr>
+<tr>
+   <td align="left">GPIO[22]</td>
+   <td align="left">AE24</td>
+   <td align="left">inout </td>
+   <td align="left">3.0-V PCI-X</td>
+   <td align="left">25</td>
+</tr>
+<tr>
+   <td align="left">GPIO[23]</td>
+   <td align="left">AD31</td>
+   <td align="left">inout </td>
+   <td align="left">3.0-V PCI-X</td>
+   <td align="left">26</td>
+</tr>
+<tr>
+   <td align="left">GPIO[24]</td>
+   <td align="left">AB30</td>
+   <td align="left">inout </td>
+   <td align="left">3.0-V PCI-X</td>
+   <td align="left">27</td>
+</tr>
+<tr>
+   <td align="left">GPIO[25]</td>
+   <td align="left">AE30</td>
+   <td align="left">inout </td>
+   <td align="left">3.0-V PCI-X</td>
+   <td align="left">28</td>
+</tr>
+<tr>
+   <td align="left">GPIO[26]</td>
+   <td align="left">AB31</td>
+   <td align="left">inout </td>
+   <td align="left">3.0-V PCI-X</td>
+   <td align="left">31</td>
+</tr>
+<tr>
+   <td align="left">GPIO[27]</td>
+   <td align="left">AE31</td>
+   <td align="left">inout </td>
+   <td align="left">3.0-V PCI-X</td>
+   <td align="left">32</td>
+</tr>
+<tr>
+   <td align="left">GPIO[28]</td>
+   <td align="left">AG31</td>
+   <td align="left">inout </td>
+   <td align="left">3.0-V PCI-X</td>
+   <td align="left">33</td>
+</tr>
+<tr>
+   <td align="left">GPIO[29]</td>
+   <td align="left">AE28</td>
+   <td align="left">inout </td>
+   <td align="left">3.0-V PCI-X</td>
+   <td align="left">34</td>
+</tr>
+<tr>
+   <td align="left">GPIO[30]</td>
+   <td align="left">AG32</td>
+   <td align="left">inout </td>
+   <td align="left">3.0-V PCI-X</td>
+   <td align="left">35</td>
+</tr>
+<tr>
+   <td align="left">GPIO[31]</td>
+   <td align="left">AE29</td>
+   <td align="left">inout </td>
+   <td align="left">3.0-V PCI-X</td>
+   <td align="left">36</td>
+</tr>
+<tr>
+   <td align="left">GPIO[32]</td>
+   <td align="left">AF29</td>
+   <td align="left">inout </td>
+   <td align="left">3.0-V PCI-X</td>
+   <td align="left">37</td>
+</tr>
+<tr>
+   <td align="left">GPIO[33]</td>
+   <td align="left">AD28</td>
+   <td align="left">inout </td>
+   <td align="left">3.0-V PCI-X</td>
+   <td align="left">38</td>
+</tr>
+<tr>
+   <td align="left">GPIO[34]</td>
+   <td align="left">AG30</td>
+   <td align="left">inout </td>
+   <td align="left">3.0-V PCI-X</td>
+   <td align="left">39</td>
+</tr>
+<tr>
+   <td align="left">GPIO[35]</td>
+   <td align="left">AD29</td>
+   <td align="left">inout </td>
+   <td align="left">3.0-V PCI-X</td>
+   <td align="left">40</td>
+</tr>
+</table>
+<h2><a name="HSMC-F"></a></h2><table border="3">
+<caption  align="left">HSMC-F connect to HSMC Default</caption>
+<br />
+<br />
+<tr>
+   <th align="left" bgcolor="Khaki">Name</th>
+   <th align="left" bgcolor="Khaki">Location</th>
+   <th align="left" bgcolor="Khaki">Direction</th>
+   <th align="left" bgcolor="Khaki">Standard</th>
+   <th align="left" bgcolor="Khaki">HSMC Pin Index</th>
+</tr>
+<tr>
+   <td align="left">HSM_CLKIN0</td>
+   <td align="left">AV22</td>
+   <td align="left">input </td>
+   <td align="left">2.5 V</td>
+   <td align="left">40</td>
+</tr>
+<tr>
+   <td align="left">HSM_CLKIN_n1</td>
+   <td align="left">AW21</td>
+   <td align="left">input </td>
+   <td align="left">2.5 V</td>
+   <td align="left">98</td>
+</tr>
+<tr>
+   <td align="left">HSM_CLKIN_n2</td>
+   <td align="left">AT21</td>
+   <td align="left">input </td>
+   <td align="left">2.5 V</td>
+   <td align="left">158</td>
+</tr>
+<tr>
+   <td align="left">HSM_CLKIN_p1</td>
+   <td align="left">AW20</td>
+   <td align="left">input </td>
+   <td align="left">2.5 V</td>
+   <td align="left">96</td>
+</tr>
+<tr>
+   <td align="left">HSM_CLKIN_p2</td>
+   <td align="left">AR22</td>
+   <td align="left">input </td>
+   <td align="left">2.5 V</td>
+   <td align="left">156</td>
+</tr>
+<tr>
+   <td align="left">HSM_CLKOUT_n1</td>
+   <td align="left">AP21</td>
+   <td align="left">output</td>
+   <td align="left">2.5 V</td>
+   <td align="left">97</td>
+</tr>
+<tr>
+   <td align="left">HSM_CLKOUT_n2</td>
+   <td align="left">AJ20</td>
+   <td align="left">output</td>
+   <td align="left">2.5 V</td>
+   <td align="left">157</td>
+</tr>
+<tr>
+   <td align="left">HSM_CLKOUT_p1</td>
+   <td align="left">AN21</td>
+   <td align="left">output</td>
+   <td align="left">2.5 V</td>
+   <td align="left">95</td>
+</tr>
+<tr>
+   <td align="left">HSM_CLKOUT_p2</td>
+   <td align="left">AH20</td>
+   <td align="left">output</td>
+   <td align="left">2.5 V</td>
+   <td align="left">155</td>
+</tr>
+<tr>
+   <td align="left">HSM_D[0]</td>
+   <td align="left">AU25</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">41</td>
+</tr>
+<tr>
+   <td align="left">HSM_D[1]</td>
+   <td align="left">AV26</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">42</td>
+</tr>
+<tr>
+   <td align="left">HSM_D[2]</td>
+   <td align="left">AT25</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">43</td>
+</tr>
+<tr>
+   <td align="left">HSM_D[3]</td>
+   <td align="left">AW26</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">44</td>
+</tr>
+<tr>
+   <td align="left">HSM_OUT0</td>
+   <td align="left">AP20</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">39</td>
+</tr>
+<tr>
+   <td align="left">HSM_RX_n[0]</td>
+   <td align="left">AU26</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">50</td>
+</tr>
+<tr>
+   <td align="left">HSM_RX_n[1]</td>
+   <td align="left">AU24</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">56</td>
+</tr>
+<tr>
+   <td align="left">HSM_RX_n[2]</td>
+   <td align="left">AP24</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">62</td>
+</tr>
+<tr>
+   <td align="left">HSM_RX_n[3]</td>
+   <td align="left">AU23</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">68</td>
+</tr>
+<tr>
+   <td align="left">HSM_RX_n[4]</td>
+   <td align="left">AT20</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">74</td>
+</tr>
+<tr>
+   <td align="left">HSM_RX_n[5]</td>
+   <td align="left">AU22</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">80</td>
+</tr>
+<tr>
+   <td align="left">HSM_RX_n[6]</td>
+   <td align="left">AV20</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">86</td>
+</tr>
+<tr>
+   <td align="left">HSM_RX_n[7]</td>
+   <td align="left">AU19</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">92</td>
+</tr>
+<tr>
+   <td align="left">HSM_RX_n[8]</td>
+   <td align="left">AU18</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">104</td>
+</tr>
+<tr>
+   <td align="left">HSM_RX_n[9]</td>
+   <td align="left">AV17</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">110</td>
+</tr>
+<tr>
+   <td align="left">HSM_RX_n[10]</td>
+   <td align="left">AN22</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">116</td>
+</tr>
+<tr>
+   <td align="left">HSM_RX_n[11]</td>
+   <td align="left">AP18</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">122</td>
+</tr>
+<tr>
+   <td align="left">HSM_RX_n[12]</td>
+   <td align="left">AL23</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">128</td>
+</tr>
+<tr>
+   <td align="left">HSM_RX_n[13]</td>
+   <td align="left">AJ23</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">134</td>
+</tr>
+<tr>
+   <td align="left">HSM_RX_n[14]</td>
+   <td align="left">AG22</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">140</td>
+</tr>
+<tr>
+   <td align="left">HSM_RX_n[15]</td>
+   <td align="left">AF20</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">146</td>
+</tr>
+<tr>
+   <td align="left">HSM_RX_n[16]</td>
+   <td align="left">AF19</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">152</td>
+</tr>
+<tr>
+   <td align="left">HSM_RX_p[0]</td>
+   <td align="left">AT26</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">48</td>
+</tr>
+<tr>
+   <td align="left">HSM_RX_p[1]</td>
+   <td align="left">AT24</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">54</td>
+</tr>
+<tr>
+   <td align="left">HSM_RX_p[2]</td>
+   <td align="left">AN24</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">60</td>
+</tr>
+<tr>
+   <td align="left">HSM_RX_p[3]</td>
+   <td align="left">AT23</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">66</td>
+</tr>
+<tr>
+   <td align="left">HSM_RX_p[4]</td>
+   <td align="left">AR20</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">72</td>
+</tr>
+<tr>
+   <td align="left">HSM_RX_p[5]</td>
+   <td align="left">AT22</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">78</td>
+</tr>
+<tr>
+   <td align="left">HSM_RX_p[6]</td>
+   <td align="left">AU20</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">84</td>
+</tr>
+<tr>
+   <td align="left">HSM_RX_p[7]</td>
+   <td align="left">AT19</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">90</td>
+</tr>
+<tr>
+   <td align="left">HSM_RX_p[8]</td>
+   <td align="left">AT18</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">102</td>
+</tr>
+<tr>
+   <td align="left">HSM_RX_p[9]</td>
+   <td align="left">AU17</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">108</td>
+</tr>
+<tr>
+   <td align="left">HSM_RX_p[10]</td>
+   <td align="left">AM22</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">114</td>
+</tr>
+<tr>
+   <td align="left">HSM_RX_p[11]</td>
+   <td align="left">AN18</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">120</td>
+</tr>
+<tr>
+   <td align="left">HSM_RX_p[12]</td>
+   <td align="left">AK23</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">126</td>
+</tr>
+<tr>
+   <td align="left">HSM_RX_p[13]</td>
+   <td align="left">AH23</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">132</td>
+</tr>
+<tr>
+   <td align="left">HSM_RX_p[14]</td>
+   <td align="left">AF22</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">138</td>
+</tr>
+<tr>
+   <td align="left">HSM_RX_p[15]</td>
+   <td align="left">AE20</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">144</td>
+</tr>
+<tr>
+   <td align="left">HSM_RX_p[16]</td>
+   <td align="left">AE19</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">150</td>
+</tr>
+<tr>
+   <td align="left">HSM_TX_n[0]</td>
+   <td align="left">AW25</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">49</td>
+</tr>
+<tr>
+   <td align="left">HSM_TX_n[1]</td>
+   <td align="left">AP25</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">55</td>
+</tr>
+<tr>
+   <td align="left">HSM_TX_n[2]</td>
+   <td align="left">AW23</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">61</td>
+</tr>
+<tr>
+   <td align="left">HSM_TX_n[3]</td>
+   <td align="left">AR23</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">67</td>
+</tr>
+<tr>
+   <td align="left">HSM_TX_n[4]</td>
+   <td align="left">AN23</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">73</td>
+</tr>
+<tr>
+   <td align="left">HSM_TX_n[5]</td>
+   <td align="left">AM25</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">79</td>
+</tr>
+<tr>
+   <td align="left">HSM_TX_n[6]</td>
+   <td align="left">AL21</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">85</td>
+</tr>
+<tr>
+   <td align="left">HSM_TX_n[7]</td>
+   <td align="left">AP19</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">91</td>
+</tr>
+<tr>
+   <td align="left">HSM_TX_n[8]</td>
+   <td align="left">AW18</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">103</td>
+</tr>
+<tr>
+   <td align="left">HSM_TX_n[9]</td>
+   <td align="left">AM19</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">109</td>
+</tr>
+<tr>
+   <td align="left">HSM_TX_n[10]</td>
+   <td align="left">AK24</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">115</td>
+</tr>
+<tr>
+   <td align="left">HSM_TX_n[11]</td>
+   <td align="left">AH22</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">121</td>
+</tr>
+<tr>
+   <td align="left">HSM_TX_n[12]</td>
+   <td align="left">AE22</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">127</td>
+</tr>
+<tr>
+   <td align="left">HSM_TX_n[13]</td>
+   <td align="left">AE21</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">133</td>
+</tr>
+<tr>
+   <td align="left">HSM_TX_n[14]</td>
+   <td align="left">AG20</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">139</td>
+</tr>
+<tr>
+   <td align="left">HSM_TX_n[15]</td>
+   <td align="left">AE18</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">145</td>
+</tr>
+<tr>
+   <td align="left">HSM_TX_n[16]</td>
+   <td align="left">AG19</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">151</td>
+</tr>
+<tr>
+   <td align="left">HSM_TX_p[0]</td>
+   <td align="left">AV25</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">47</td>
+</tr>
+<tr>
+   <td align="left">HSM_TX_p[1]</td>
+   <td align="left">AR25</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">53</td>
+</tr>
+<tr>
+   <td align="left">HSM_TX_p[2]</td>
+   <td align="left">AV23</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">59</td>
+</tr>
+<tr>
+   <td align="left">HSM_TX_p[3]</td>
+   <td align="left">AP23</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">65</td>
+</tr>
+<tr>
+   <td align="left">HSM_TX_p[4]</td>
+   <td align="left">AM23</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">71</td>
+</tr>
+<tr>
+   <td align="left">HSM_TX_p[5]</td>
+   <td align="left">AN25</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">77</td>
+</tr>
+<tr>
+   <td align="left">HSM_TX_p[6]</td>
+   <td align="left">AL22</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">83</td>
+</tr>
+<tr>
+   <td align="left">HSM_TX_p[7]</td>
+   <td align="left">AR19</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">89</td>
+</tr>
+<tr>
+   <td align="left">HSM_TX_p[8]</td>
+   <td align="left">AT17</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">101</td>
+</tr>
+<tr>
+   <td align="left">HSM_TX_p[9]</td>
+   <td align="left">AN19</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">107</td>
+</tr>
+<tr>
+   <td align="left">HSM_TX_p[10]</td>
+   <td align="left">AJ22</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">113</td>
+</tr>
+<tr>
+   <td align="left">HSM_TX_p[11]</td>
+   <td align="left">AE23</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">119</td>
+</tr>
+<tr>
+   <td align="left">HSM_TX_p[12]</td>
+   <td align="left">AF23</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">125</td>
+</tr>
+<tr>
+   <td align="left">HSM_TX_p[13]</td>
+   <td align="left">AG21</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">131</td>
+</tr>
+<tr>
+   <td align="left">HSM_TX_p[14]</td>
+   <td align="left">AD21</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">137</td>
+</tr>
+<tr>
+   <td align="left">HSM_TX_p[15]</td>
+   <td align="left">AG18</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">143</td>
+</tr>
+<tr>
+   <td align="left">HSM_TX_p[16]</td>
+   <td align="left">AD19</td>
+   <td align="left">inout </td>
+   <td align="left">2.5 V</td>
+   <td align="left">149</td>
+</tr>
+</table>
+<h2><a name="HSMC D/E/F I2C"></a></h2><table border="3">
+<caption  align="left">HSMC D/E/F I2C</caption>
+<br />
+<br />
+<tr>
+   <th align="left" bgcolor="Khaki">Name</th>
+   <th align="left" bgcolor="Khaki">Location</th>
+   <th align="left" bgcolor="Khaki">Direction</th>
+   <th align="left" bgcolor="Khaki">Standard</th>
+</tr>
+<tr>
+   <td align="left">HSMC_DEF_SCL</td>
+   <td align="left">G21</td>
+   <td align="left">output</td>
+   <td align="left">1.5 V</td>
+</tr>
+<tr>
+   <td align="left">HSMC_DEF_SDA</td>
+   <td align="left">F21</td>
+   <td align="left">inout </td>
+   <td align="left">1.5 V</td>
+</tr>
+</table>
+</html>
+</body>
