@@ -1,0 +1,8 @@
+INTENDED_DEVICE_FAMILY="Cyclone V"
+enable_bus_hold=FALSE
+number_of_channels=1
+use_differential_mode=FALSE
+use_dynamic_termination_control=FALSE
+DEVICE_FAMILY="Cyclone V"
+datain
+dataout

@@ -1,0 +1,73 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "LED[0]",
+					"strict" : false
+				},
+				{
+					"name" : "LED[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LED[2]",
+					"strict" : false
+				},
+				{
+					"name" : "LED[3]",
+					"strict" : false
+				},
+				{
+					"name" : "HSMC_CLKOUT_P[1]",
+					"strict" : false
+				},
+				{
+					"name" : "jtag_jtag_TDO",
+					"strict" : false
+				},
+				{
+					"name" : "HSMC_RX_P[9]",
+					"strict" : false
+				},
+				{
+					"name" : "HSMC_RX_P[15]",
+					"strict" : false
+				},
+				{
+					"name" : "HSMC_TX_N[1]",
+					"strict" : false
+				},
+				{
+					"name" : "HSMC_RX_N[14]",
+					"strict" : false
+				},
+				{
+					"name" : "HSMC_RX_P[16]",
+					"strict" : false
+				},
+				{
+					"name" : "OSC_50_B3B",
+					"strict" : false
+				},
+				{
+					"name" : "KEY[0]",
+					"strict" : false
+				},
+				{
+					"name" : "jtag_jtag_TCK",
+					"strict" : false
+				},
+				{
+					"name" : "jtag_jtag_TMS",
+					"strict" : false
+				},
+				{
+					"name" : "jtag_jtag_TDI",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

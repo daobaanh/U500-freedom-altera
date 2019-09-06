@@ -1,0 +1,591 @@
+--altsyncram ACF_BLOCK_RAM_AND_MLAB_EQUIVALENT_PAUSED_READ_CAPABILITIES="CARE" ADDRESS_ACLR_B="NONE" ADDRESS_REG_B="CLOCK0" CBX_DECLARE_ALL_CONNECTED_PORTS="OFF" CLOCK_ENABLE_INPUT_A="BYPASS" CLOCK_ENABLE_INPUT_B="BYPASS" CLOCK_ENABLE_OUTPUT_B="BYPASS" CYCLONEII_M4K_COMPATIBILITY="ON" DEVICE_FAMILY="STRATIXIV" INIT_FILE="DDR3AXI4_mem_if_ddr3_emif_0_s0_inst_ROM.hex" LOW_POWER_MODE="AUTO" NUMWORDS_A=128 NUMWORDS_B=128 OPERATION_MODE="ROM" OUTDATA_ACLR_B="NONE" OUTDATA_REG_B="UNREGISTERED" POWER_UP_UNINITIALIZED="FALSE" RAM_BLOCK_TYPE="MLAB" stratixiv_m144k_allow_dual_clocks="ON" WIDTH_A=20 WIDTH_B=20 WIDTH_BYTEENA_A=1 WIDTHAD_A=7 WIDTHAD_B=7 address_a clock0 q_a CARRY_CHAIN="MANUAL" CARRY_CHAIN_LENGTH=48
+--VERSION_BEGIN 18.1 cbx_altera_syncram_nd_impl 2018:09:12:13:04:24:SJ cbx_altsyncram 2018:09:12:13:04:24:SJ cbx_cycloneii 2018:09:12:13:04:24:SJ cbx_lpm_add_sub 2018:09:12:13:04:24:SJ cbx_lpm_compare 2018:09:12:13:04:24:SJ cbx_lpm_decode 2018:09:12:13:04:24:SJ cbx_lpm_mux 2018:09:12:13:04:24:SJ cbx_mgl 2018:09:12:13:10:36:SJ cbx_nadder 2018:09:12:13:04:24:SJ cbx_stratix 2018:09:12:13:04:24:SJ cbx_stratixii 2018:09:12:13:04:24:SJ cbx_stratixiii 2018:09:12:13:04:24:SJ cbx_stratixv 2018:09:12:13:04:24:SJ cbx_util_mgl 2018:09:12:13:04:24:SJ  VERSION_END
+
+
+-- Copyright (C) 2018  Intel Corporation. All rights reserved.
+--  Your use of Intel Corporation's design tools, logic functions 
+--  and other software and tools, and its AMPP partner logic 
+--  functions, and any output files from any of the foregoing 
+--  (including device programming or simulation files), and any 
+--  associated documentation or information are expressly subject 
+--  to the terms and conditions of the Intel Program License 
+--  Subscription Agreement, the Intel Quartus Prime License Agreement,
+--  the Intel FPGA IP License Agreement, or other applicable license
+--  agreement, including, without limitation, that your use is for
+--  the sole purpose of programming logic devices manufactured by
+--  Intel and sold by Intel or its authorized distributors.  Please
+--  refer to the applicable agreement for further details.
+
+
+FUNCTION decode_goa (data[0..0], enable)
+RETURNS ( eq[1..0]);
+FUNCTION mux_akb (data[39..0], sel[0..0])
+RETURNS ( result[19..0]);
+FUNCTION stratixiv_mlab_cell (clk0, ena0, portaaddr[address_width-1..0], portabyteenamasks[byte_enable_mask_width-1..0], portadatain[data_width-1..0], portbaddr[address_width-1..0])
+WITH ( address_width = 1, byte_enable_mask_width = 2, data_width = 1, first_address, first_bit_number, init_file, last_address, logical_ram_depth, logical_ram_name, logical_ram_width, mem_init0, mixed_port_feed_through_mode)
+RETURNS ( portbdataout[data_width-1..0]);
+
+--synthesis_resources = lut 8 MLAB 4 reg 7 
+OPTIONS ALTERA_INTERNAL_OPTION = "ADV_NETLIST_OPT_ALLOWED=""NEVER_ALLOW"";OPTIMIZE_POWER_DURING_SYNTHESIS=NORMAL_COMPILATION;{-to rdaddr_reg} PRESERVE_REGISTER=ON";
+
+SUBDESIGN altsyncram_lu12
+( 
+	address_a[6..0]	:	input;
+	clock0	:	input;
+	q_a[19..0]	:	output;
+) 
+VARIABLE 
+	rdaddr_reg[6..0] : dffe;
+	wr_decode : decode_goa;
+	rd_mux : mux_akb;
+	lutrama0 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 0,
+			first_bit_number = 0,
+			init_file = "DDR3AXI4_mem_if_ddr3_emif_0_s0_inst_ROM.hex",
+			last_address = 63,
+			logical_ram_depth = 128,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 20
+		);
+	lutrama1 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 0,
+			first_bit_number = 1,
+			init_file = "DDR3AXI4_mem_if_ddr3_emif_0_s0_inst_ROM.hex",
+			last_address = 63,
+			logical_ram_depth = 128,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 20
+		);
+	lutrama2 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 0,
+			first_bit_number = 2,
+			init_file = "DDR3AXI4_mem_if_ddr3_emif_0_s0_inst_ROM.hex",
+			last_address = 63,
+			logical_ram_depth = 128,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 20
+		);
+	lutrama3 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 0,
+			first_bit_number = 3,
+			init_file = "DDR3AXI4_mem_if_ddr3_emif_0_s0_inst_ROM.hex",
+			last_address = 63,
+			logical_ram_depth = 128,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 20
+		);
+	lutrama4 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 0,
+			first_bit_number = 4,
+			init_file = "DDR3AXI4_mem_if_ddr3_emif_0_s0_inst_ROM.hex",
+			last_address = 63,
+			logical_ram_depth = 128,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 20
+		);
+	lutrama5 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 0,
+			first_bit_number = 5,
+			init_file = "DDR3AXI4_mem_if_ddr3_emif_0_s0_inst_ROM.hex",
+			last_address = 63,
+			logical_ram_depth = 128,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 20
+		);
+	lutrama6 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 0,
+			first_bit_number = 6,
+			init_file = "DDR3AXI4_mem_if_ddr3_emif_0_s0_inst_ROM.hex",
+			last_address = 63,
+			logical_ram_depth = 128,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 20
+		);
+	lutrama7 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 0,
+			first_bit_number = 7,
+			init_file = "DDR3AXI4_mem_if_ddr3_emif_0_s0_inst_ROM.hex",
+			last_address = 63,
+			logical_ram_depth = 128,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 20
+		);
+	lutrama8 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 0,
+			first_bit_number = 8,
+			init_file = "DDR3AXI4_mem_if_ddr3_emif_0_s0_inst_ROM.hex",
+			last_address = 63,
+			logical_ram_depth = 128,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 20
+		);
+	lutrama9 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 0,
+			first_bit_number = 9,
+			init_file = "DDR3AXI4_mem_if_ddr3_emif_0_s0_inst_ROM.hex",
+			last_address = 63,
+			logical_ram_depth = 128,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 20
+		);
+	lutrama10 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 0,
+			first_bit_number = 10,
+			init_file = "DDR3AXI4_mem_if_ddr3_emif_0_s0_inst_ROM.hex",
+			last_address = 63,
+			logical_ram_depth = 128,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 20
+		);
+	lutrama11 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 0,
+			first_bit_number = 11,
+			init_file = "DDR3AXI4_mem_if_ddr3_emif_0_s0_inst_ROM.hex",
+			last_address = 63,
+			logical_ram_depth = 128,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 20
+		);
+	lutrama12 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 0,
+			first_bit_number = 12,
+			init_file = "DDR3AXI4_mem_if_ddr3_emif_0_s0_inst_ROM.hex",
+			last_address = 63,
+			logical_ram_depth = 128,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 20
+		);
+	lutrama13 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 0,
+			first_bit_number = 13,
+			init_file = "DDR3AXI4_mem_if_ddr3_emif_0_s0_inst_ROM.hex",
+			last_address = 63,
+			logical_ram_depth = 128,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 20
+		);
+	lutrama14 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 0,
+			first_bit_number = 14,
+			init_file = "DDR3AXI4_mem_if_ddr3_emif_0_s0_inst_ROM.hex",
+			last_address = 63,
+			logical_ram_depth = 128,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 20
+		);
+	lutrama15 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 0,
+			first_bit_number = 15,
+			init_file = "DDR3AXI4_mem_if_ddr3_emif_0_s0_inst_ROM.hex",
+			last_address = 63,
+			logical_ram_depth = 128,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 20
+		);
+	lutrama16 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 0,
+			first_bit_number = 16,
+			init_file = "DDR3AXI4_mem_if_ddr3_emif_0_s0_inst_ROM.hex",
+			last_address = 63,
+			logical_ram_depth = 128,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 20
+		);
+	lutrama17 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 0,
+			first_bit_number = 17,
+			init_file = "DDR3AXI4_mem_if_ddr3_emif_0_s0_inst_ROM.hex",
+			last_address = 63,
+			logical_ram_depth = 128,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 20
+		);
+	lutrama18 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 0,
+			first_bit_number = 18,
+			init_file = "DDR3AXI4_mem_if_ddr3_emif_0_s0_inst_ROM.hex",
+			last_address = 63,
+			logical_ram_depth = 128,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 20
+		);
+	lutrama19 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 0,
+			first_bit_number = 19,
+			init_file = "DDR3AXI4_mem_if_ddr3_emif_0_s0_inst_ROM.hex",
+			last_address = 63,
+			logical_ram_depth = 128,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 20
+		);
+	lutrama20 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 64,
+			first_bit_number = 0,
+			init_file = "DDR3AXI4_mem_if_ddr3_emif_0_s0_inst_ROM.hex",
+			last_address = 127,
+			logical_ram_depth = 128,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 20
+		);
+	lutrama21 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 64,
+			first_bit_number = 1,
+			init_file = "DDR3AXI4_mem_if_ddr3_emif_0_s0_inst_ROM.hex",
+			last_address = 127,
+			logical_ram_depth = 128,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 20
+		);
+	lutrama22 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 64,
+			first_bit_number = 2,
+			init_file = "DDR3AXI4_mem_if_ddr3_emif_0_s0_inst_ROM.hex",
+			last_address = 127,
+			logical_ram_depth = 128,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 20
+		);
+	lutrama23 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 64,
+			first_bit_number = 3,
+			init_file = "DDR3AXI4_mem_if_ddr3_emif_0_s0_inst_ROM.hex",
+			last_address = 127,
+			logical_ram_depth = 128,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 20
+		);
+	lutrama24 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 64,
+			first_bit_number = 4,
+			init_file = "DDR3AXI4_mem_if_ddr3_emif_0_s0_inst_ROM.hex",
+			last_address = 127,
+			logical_ram_depth = 128,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 20
+		);
+	lutrama25 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 64,
+			first_bit_number = 5,
+			init_file = "DDR3AXI4_mem_if_ddr3_emif_0_s0_inst_ROM.hex",
+			last_address = 127,
+			logical_ram_depth = 128,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 20
+		);
+	lutrama26 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 64,
+			first_bit_number = 6,
+			init_file = "DDR3AXI4_mem_if_ddr3_emif_0_s0_inst_ROM.hex",
+			last_address = 127,
+			logical_ram_depth = 128,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 20
+		);
+	lutrama27 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 64,
+			first_bit_number = 7,
+			init_file = "DDR3AXI4_mem_if_ddr3_emif_0_s0_inst_ROM.hex",
+			last_address = 127,
+			logical_ram_depth = 128,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 20
+		);
+	lutrama28 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 64,
+			first_bit_number = 8,
+			init_file = "DDR3AXI4_mem_if_ddr3_emif_0_s0_inst_ROM.hex",
+			last_address = 127,
+			logical_ram_depth = 128,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 20
+		);
+	lutrama29 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 64,
+			first_bit_number = 9,
+			init_file = "DDR3AXI4_mem_if_ddr3_emif_0_s0_inst_ROM.hex",
+			last_address = 127,
+			logical_ram_depth = 128,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 20
+		);
+	lutrama30 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 64,
+			first_bit_number = 10,
+			init_file = "DDR3AXI4_mem_if_ddr3_emif_0_s0_inst_ROM.hex",
+			last_address = 127,
+			logical_ram_depth = 128,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 20
+		);
+	lutrama31 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 64,
+			first_bit_number = 11,
+			init_file = "DDR3AXI4_mem_if_ddr3_emif_0_s0_inst_ROM.hex",
+			last_address = 127,
+			logical_ram_depth = 128,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 20
+		);
+	lutrama32 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 64,
+			first_bit_number = 12,
+			init_file = "DDR3AXI4_mem_if_ddr3_emif_0_s0_inst_ROM.hex",
+			last_address = 127,
+			logical_ram_depth = 128,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 20
+		);
+	lutrama33 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 64,
+			first_bit_number = 13,
+			init_file = "DDR3AXI4_mem_if_ddr3_emif_0_s0_inst_ROM.hex",
+			last_address = 127,
+			logical_ram_depth = 128,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 20
+		);
+	lutrama34 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 64,
+			first_bit_number = 14,
+			init_file = "DDR3AXI4_mem_if_ddr3_emif_0_s0_inst_ROM.hex",
+			last_address = 127,
+			logical_ram_depth = 128,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 20
+		);
+	lutrama35 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 64,
+			first_bit_number = 15,
+			init_file = "DDR3AXI4_mem_if_ddr3_emif_0_s0_inst_ROM.hex",
+			last_address = 127,
+			logical_ram_depth = 128,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 20
+		);
+	lutrama36 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 64,
+			first_bit_number = 16,
+			init_file = "DDR3AXI4_mem_if_ddr3_emif_0_s0_inst_ROM.hex",
+			last_address = 127,
+			logical_ram_depth = 128,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 20
+		);
+	lutrama37 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 64,
+			first_bit_number = 17,
+			init_file = "DDR3AXI4_mem_if_ddr3_emif_0_s0_inst_ROM.hex",
+			last_address = 127,
+			logical_ram_depth = 128,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 20
+		);
+	lutrama38 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 64,
+			first_bit_number = 18,
+			init_file = "DDR3AXI4_mem_if_ddr3_emif_0_s0_inst_ROM.hex",
+			last_address = 127,
+			logical_ram_depth = 128,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 20
+		);
+	lutrama39 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 64,
+			first_bit_number = 19,
+			init_file = "DDR3AXI4_mem_if_ddr3_emif_0_s0_inst_ROM.hex",
+			last_address = 127,
+			logical_ram_depth = 128,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 20
+		);
+	addr_wire[6..0]	: WIRE;
+	data_wire[19..0]	: WIRE;
+	datain_wire[19..0]	: WIRE;
+	dataout_wire[19..0]	: WIRE;
+	rdaddr_wire[6..0]	: WIRE;
+	wr_en	: WIRE;
+	wraddr_wire[6..0]	: WIRE;
+	wren	: WIRE;
+
+BEGIN 
+	rdaddr_reg[].clk = clock0;
+	rdaddr_reg[].d = address_a[];
+	wr_decode.data[0..0] = addr_wire[6..6];
+	wr_decode.enable = wr_en;
+	rd_mux.data[] = ( lutrama[39..0].portbdataout[]);
+	rd_mux.sel[0..0] = rdaddr_wire[6..6];
+	lutrama[39..0].clk0 = clock0;
+	lutrama[39..0].ena0 = ( wr_decode.eq[1..1], wr_decode.eq[1..1], wr_decode.eq[1..1], wr_decode.eq[1..1], wr_decode.eq[1..1], wr_decode.eq[1..1], wr_decode.eq[1..1], wr_decode.eq[1..1], wr_decode.eq[1..1], wr_decode.eq[1..1], wr_decode.eq[1..1], wr_decode.eq[1..1], wr_decode.eq[1..1], wr_decode.eq[1..1], wr_decode.eq[1..1], wr_decode.eq[1..1], wr_decode.eq[1..1], wr_decode.eq[1..1], wr_decode.eq[1..1], wr_decode.eq[1..0], wr_decode.eq[0..0], wr_decode.eq[0..0], wr_decode.eq[0..0], wr_decode.eq[0..0], wr_decode.eq[0..0], wr_decode.eq[0..0], wr_decode.eq[0..0], wr_decode.eq[0..0], wr_decode.eq[0..0], wr_decode.eq[0..0], wr_decode.eq[0..0], wr_decode.eq[0..0], wr_decode.eq[0..0], wr_decode.eq[0..0], wr_decode.eq[0..0], wr_decode.eq[0..0], wr_decode.eq[0..0], wr_decode.eq[0..0], wr_decode.eq[0..0]);
+	lutrama[39..0].portaaddr[5..0] = wraddr_wire[5..0];
+	lutrama[0].portadatain[0..0] = datain_wire[0..0];
+	lutrama[1].portadatain[0..0] = datain_wire[1..1];
+	lutrama[2].portadatain[0..0] = datain_wire[2..2];
+	lutrama[3].portadatain[0..0] = datain_wire[3..3];
+	lutrama[4].portadatain[0..0] = datain_wire[4..4];
+	lutrama[5].portadatain[0..0] = datain_wire[5..5];
+	lutrama[6].portadatain[0..0] = datain_wire[6..6];
+	lutrama[7].portadatain[0..0] = datain_wire[7..7];
+	lutrama[8].portadatain[0..0] = datain_wire[8..8];
+	lutrama[9].portadatain[0..0] = datain_wire[9..9];
+	lutrama[10].portadatain[0..0] = datain_wire[10..10];
+	lutrama[11].portadatain[0..0] = datain_wire[11..11];
+	lutrama[12].portadatain[0..0] = datain_wire[12..12];
+	lutrama[13].portadatain[0..0] = datain_wire[13..13];
+	lutrama[14].portadatain[0..0] = datain_wire[14..14];
+	lutrama[15].portadatain[0..0] = datain_wire[15..15];
+	lutrama[16].portadatain[0..0] = datain_wire[16..16];
+	lutrama[17].portadatain[0..0] = datain_wire[17..17];
+	lutrama[18].portadatain[0..0] = datain_wire[18..18];
+	lutrama[19].portadatain[0..0] = datain_wire[19..19];
+	lutrama[20].portadatain[0..0] = datain_wire[0..0];
+	lutrama[21].portadatain[0..0] = datain_wire[1..1];
+	lutrama[22].portadatain[0..0] = datain_wire[2..2];
+	lutrama[23].portadatain[0..0] = datain_wire[3..3];
+	lutrama[24].portadatain[0..0] = datain_wire[4..4];
+	lutrama[25].portadatain[0..0] = datain_wire[5..5];
+	lutrama[26].portadatain[0..0] = datain_wire[6..6];
+	lutrama[27].portadatain[0..0] = datain_wire[7..7];
+	lutrama[28].portadatain[0..0] = datain_wire[8..8];
+	lutrama[29].portadatain[0..0] = datain_wire[9..9];
+	lutrama[30].portadatain[0..0] = datain_wire[10..10];
+	lutrama[31].portadatain[0..0] = datain_wire[11..11];
+	lutrama[32].portadatain[0..0] = datain_wire[12..12];
+	lutrama[33].portadatain[0..0] = datain_wire[13..13];
+	lutrama[34].portadatain[0..0] = datain_wire[14..14];
+	lutrama[35].portadatain[0..0] = datain_wire[15..15];
+	lutrama[36].portadatain[0..0] = datain_wire[16..16];
+	lutrama[37].portadatain[0..0] = datain_wire[17..17];
+	lutrama[38].portadatain[0..0] = datain_wire[18..18];
+	lutrama[39].portadatain[0..0] = datain_wire[19..19];
+	lutrama[39..0].portbaddr[5..0] = rdaddr_wire[5..0];
+	addr_wire[] = B"0000000";
+	data_wire[] = B"00000000000000000000";
+	datain_wire[] = data_wire[];
+	dataout_wire[] = rd_mux.result[];
+	q_a[] = dataout_wire[];
+	rdaddr_wire[] = rdaddr_reg[].q;
+	wr_en = wren;
+	wraddr_wire[] = addr_wire[];
+	wren = B"0";
+END;
+--VALID FILE

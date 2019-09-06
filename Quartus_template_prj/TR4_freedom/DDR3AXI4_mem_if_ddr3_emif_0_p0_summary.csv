@@ -1,0 +1,29 @@
+Core: DDR3AXI4_mem_if_ddr3_emif_0_p0 - Instance: topDesign|topMod|mig|island|blackbox|mem_if_ddr3_emif_0
+Path, Setup Margin, Hold Margin
+"Address Command (Slow 900mV 85C Model)",0.67,0.647
+"Bus Turnaround Time (Slow 900mV 85C Model)",5.441,--
+"Core (Slow 900mV 85C Model)",-0.08,0.141
+"Core Recovery/Removal (Slow 900mV 85C Model)",1.614,0.656
+"Read Capture (Slow 900mV 85C Model)",0.339,0.299
+"Read Resync (Slow 900mV 85C Model)",1.806,4.024
+"Write (Slow 900mV 85C Model)",0.271,0.271
+"Write Leveling tDQSS (Slow 900mV 85C Model)",0.71,0.71
+"Write Leveling tDSS/tDSH (Slow 900mV 85C Model)",0.734,0.734
+"Address Command (Slow 900mV 0C Model)",0.686,0.672
+"Bus Turnaround Time (Slow 900mV 0C Model)",5.466,--
+"Core (Slow 900mV 0C Model)",0.153,0.134
+"Core Recovery/Removal (Slow 900mV 0C Model)",1.734,0.621
+"Read Capture (Slow 900mV 0C Model)",0.343,0.303
+"Read Resync (Slow 900mV 0C Model)",1.979,4.07
+"Write (Slow 900mV 0C Model)",0.307,0.307
+"Write Leveling tDQSS (Slow 900mV 0C Model)",0.71,0.71
+"Write Leveling tDSS/tDSH (Slow 900mV 0C Model)",0.734,0.734
+"Address Command (Fast 900mV 0C Model)",0.736,0.731
+"Bus Turnaround Time (Fast 900mV 0C Model)",5.505,--
+"Core (Fast 900mV 0C Model)",0.535,0.097
+"Core Recovery/Removal (Fast 900mV 0C Model)",2.481,0.396
+"Read Capture (Fast 900mV 0C Model)",0.375,0.335
+"Read Resync (Fast 900mV 0C Model)",2.756,4.462
+"Write (Fast 900mV 0C Model)",0.288,0.288
+"Write Leveling tDQSS (Fast 900mV 0C Model)",0.71,0.71
+"Write Leveling tDSS/tDSH (Fast 900mV 0C Model)",0.734,0.734

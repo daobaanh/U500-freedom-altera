@@ -1,0 +1,373 @@
+--altdpram ACF_BLOCK_RAM_AND_MLAB_EQUIVALENT_PAUSED_READ_CAPABILITIES="CARE" CBX_DECLARE_ALL_CONNECTED_PORTS="OFF" DEVICE_FAMILY="Stratix IV" INDATA_ACLR="OFF" INDATA_REG="INCLOCK" INTENDED_DEVICE_FAMILY="Stratix IV" OUTDATA_ACLR="OFF" OUTDATA_REG="UNREGISTERED" RAM_BLOCK_TYPE="MLAB" RDADDRESS_ACLR="OFF" RDADDRESS_REG="UNREGISTERED" RDCONTROL_ACLR="OFF" RDCONTROL_REG="UNREGISTERED" WIDTH=24 WIDTH_BYTEENA=1 WIDTHAD=6 WRADDRESS_ACLR="OFF" WRADDRESS_REG="INCLOCK" WRCONTROL_ACLR="OFF" WRCONTROL_REG="INCLOCK" data inclock q rdaddress wraddress wren CARRY_CHAIN="MANUAL" CARRY_CHAIN_LENGTH=48 CYCLONEII_M4K_COMPATIBILITY="ON" LOW_POWER_MODE="AUTO"
+--VERSION_BEGIN 18.1 cbx_altdpram 2018:09:12:13:04:24:SJ cbx_altera_syncram 2018:09:12:13:04:24:SJ cbx_altera_syncram_nd_impl 2018:09:12:13:04:24:SJ cbx_altsyncram 2018:09:12:13:04:24:SJ cbx_cycloneii 2018:09:12:13:04:24:SJ cbx_lpm_add_sub 2018:09:12:13:04:24:SJ cbx_lpm_compare 2018:09:12:13:04:24:SJ cbx_lpm_decode 2018:09:12:13:04:24:SJ cbx_lpm_mux 2018:09:12:13:04:24:SJ cbx_mgl 2018:09:12:13:10:36:SJ cbx_nadder 2018:09:12:13:04:24:SJ cbx_stratix 2018:09:12:13:04:24:SJ cbx_stratixii 2018:09:12:13:04:24:SJ cbx_stratixiii 2018:09:12:13:04:24:SJ cbx_stratixv 2018:09:12:13:04:24:SJ cbx_util_mgl 2018:09:12:13:04:24:SJ  VERSION_END
+
+
+-- Copyright (C) 2018  Intel Corporation. All rights reserved.
+--  Your use of Intel Corporation's design tools, logic functions 
+--  and other software and tools, and its AMPP partner logic 
+--  functions, and any output files from any of the foregoing 
+--  (including device programming or simulation files), and any 
+--  associated documentation or information are expressly subject 
+--  to the terms and conditions of the Intel Program License 
+--  Subscription Agreement, the Intel Quartus Prime License Agreement,
+--  the Intel FPGA IP License Agreement, or other applicable license
+--  agreement, including, without limitation, that your use is for
+--  the sole purpose of programming logic devices manufactured by
+--  Intel and sold by Intel or its authorized distributors.  Please
+--  refer to the applicable agreement for further details.
+
+
+FUNCTION stratixiv_mlab_cell (clk0, ena0, portaaddr[address_width-1..0], portabyteenamasks[byte_enable_mask_width-1..0], portadatain[data_width-1..0], portbaddr[address_width-1..0])
+WITH ( address_width = 1, byte_enable_mask_width = 2, data_width = 1, first_address, first_bit_number, init_file, last_address, logical_ram_depth, logical_ram_name, logical_ram_width, mem_init0, mixed_port_feed_through_mode)
+RETURNS ( portbdataout[data_width-1..0]);
+
+--synthesis_resources = MLAB 3 reg 30 
+OPTIONS ALTERA_INTERNAL_OPTION = "ADV_NETLIST_OPT_ALLOWED=""NEVER_ALLOW"";{-to datain_reg} PRESERVE_REGISTER=ON;{-to datain_reg} ALLOW_SYNCH_CTRL_USAGE=OFF;{-to datain_reg} DONT_MERGE_REGISTER=ON;{-to wraddr_reg} PRESERVE_REGISTER=ON;{-to wraddr_reg} DONT_MERGE_REGISTER=ON";
+
+SUBDESIGN dpram_r7s1
+( 
+	data[23..0]	:	input;
+	inclock	:	input;
+	q[23..0]	:	output;
+	rdaddress[5..0]	:	input;
+	wraddress[5..0]	:	input;
+	wren	:	input;
+) 
+VARIABLE 
+	datain_reg[23..0] : dffe;
+	wraddr_reg[5..0] : dffe;
+	lutrama0 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 0,
+			first_bit_number = 0,
+			last_address = 63,
+			logical_ram_depth = 64,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 24,
+			mixed_port_feed_through_mode = "dont_care"
+		);
+	lutrama1 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 0,
+			first_bit_number = 1,
+			last_address = 63,
+			logical_ram_depth = 64,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 24,
+			mixed_port_feed_through_mode = "dont_care"
+		);
+	lutrama2 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 0,
+			first_bit_number = 2,
+			last_address = 63,
+			logical_ram_depth = 64,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 24,
+			mixed_port_feed_through_mode = "dont_care"
+		);
+	lutrama3 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 0,
+			first_bit_number = 3,
+			last_address = 63,
+			logical_ram_depth = 64,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 24,
+			mixed_port_feed_through_mode = "dont_care"
+		);
+	lutrama4 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 0,
+			first_bit_number = 4,
+			last_address = 63,
+			logical_ram_depth = 64,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 24,
+			mixed_port_feed_through_mode = "dont_care"
+		);
+	lutrama5 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 0,
+			first_bit_number = 5,
+			last_address = 63,
+			logical_ram_depth = 64,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 24,
+			mixed_port_feed_through_mode = "dont_care"
+		);
+	lutrama6 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 0,
+			first_bit_number = 6,
+			last_address = 63,
+			logical_ram_depth = 64,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 24,
+			mixed_port_feed_through_mode = "dont_care"
+		);
+	lutrama7 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 0,
+			first_bit_number = 7,
+			last_address = 63,
+			logical_ram_depth = 64,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 24,
+			mixed_port_feed_through_mode = "dont_care"
+		);
+	lutrama8 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 0,
+			first_bit_number = 8,
+			last_address = 63,
+			logical_ram_depth = 64,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 24,
+			mixed_port_feed_through_mode = "dont_care"
+		);
+	lutrama9 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 0,
+			first_bit_number = 9,
+			last_address = 63,
+			logical_ram_depth = 64,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 24,
+			mixed_port_feed_through_mode = "dont_care"
+		);
+	lutrama10 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 0,
+			first_bit_number = 10,
+			last_address = 63,
+			logical_ram_depth = 64,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 24,
+			mixed_port_feed_through_mode = "dont_care"
+		);
+	lutrama11 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 0,
+			first_bit_number = 11,
+			last_address = 63,
+			logical_ram_depth = 64,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 24,
+			mixed_port_feed_through_mode = "dont_care"
+		);
+	lutrama12 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 0,
+			first_bit_number = 12,
+			last_address = 63,
+			logical_ram_depth = 64,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 24,
+			mixed_port_feed_through_mode = "dont_care"
+		);
+	lutrama13 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 0,
+			first_bit_number = 13,
+			last_address = 63,
+			logical_ram_depth = 64,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 24,
+			mixed_port_feed_through_mode = "dont_care"
+		);
+	lutrama14 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 0,
+			first_bit_number = 14,
+			last_address = 63,
+			logical_ram_depth = 64,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 24,
+			mixed_port_feed_through_mode = "dont_care"
+		);
+	lutrama15 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 0,
+			first_bit_number = 15,
+			last_address = 63,
+			logical_ram_depth = 64,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 24,
+			mixed_port_feed_through_mode = "dont_care"
+		);
+	lutrama16 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 0,
+			first_bit_number = 16,
+			last_address = 63,
+			logical_ram_depth = 64,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 24,
+			mixed_port_feed_through_mode = "dont_care"
+		);
+	lutrama17 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 0,
+			first_bit_number = 17,
+			last_address = 63,
+			logical_ram_depth = 64,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 24,
+			mixed_port_feed_through_mode = "dont_care"
+		);
+	lutrama18 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 0,
+			first_bit_number = 18,
+			last_address = 63,
+			logical_ram_depth = 64,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 24,
+			mixed_port_feed_through_mode = "dont_care"
+		);
+	lutrama19 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 0,
+			first_bit_number = 19,
+			last_address = 63,
+			logical_ram_depth = 64,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 24,
+			mixed_port_feed_through_mode = "dont_care"
+		);
+	lutrama20 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 0,
+			first_bit_number = 20,
+			last_address = 63,
+			logical_ram_depth = 64,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 24,
+			mixed_port_feed_through_mode = "dont_care"
+		);
+	lutrama21 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 0,
+			first_bit_number = 21,
+			last_address = 63,
+			logical_ram_depth = 64,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 24,
+			mixed_port_feed_through_mode = "dont_care"
+		);
+	lutrama22 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 0,
+			first_bit_number = 22,
+			last_address = 63,
+			logical_ram_depth = 64,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 24,
+			mixed_port_feed_through_mode = "dont_care"
+		);
+	lutrama23 : stratixiv_mlab_cell
+		WITH (
+			address_width = 6,
+			data_width = 1,
+			first_address = 0,
+			first_bit_number = 23,
+			last_address = 63,
+			logical_ram_depth = 64,
+			logical_ram_name = "ALTDPRAM_INSTANCE",
+			logical_ram_width = 24,
+			mixed_port_feed_through_mode = "dont_care"
+		);
+	datain_wire[23..0]	: WIRE;
+	dataout_wire[23..0]	: WIRE;
+	rdaddr_wire[5..0]	: WIRE;
+	wr_en	: WIRE;
+	wraddr_wire[5..0]	: WIRE;
+
+BEGIN 
+	datain_reg[].clk = inclock;
+	datain_reg[].d = data[];
+	wraddr_reg[].clk = inclock;
+	wraddr_reg[].d = wraddress[];
+	lutrama[23..0].clk0 = inclock;
+	lutrama[23..0].ena0 = wr_en;
+	lutrama[23..0].portaaddr[5..0] = wraddr_wire[5..0];
+	lutrama[0].portadatain[0..0] = datain_wire[0..0];
+	lutrama[1].portadatain[0..0] = datain_wire[1..1];
+	lutrama[2].portadatain[0..0] = datain_wire[2..2];
+	lutrama[3].portadatain[0..0] = datain_wire[3..3];
+	lutrama[4].portadatain[0..0] = datain_wire[4..4];
+	lutrama[5].portadatain[0..0] = datain_wire[5..5];
+	lutrama[6].portadatain[0..0] = datain_wire[6..6];
+	lutrama[7].portadatain[0..0] = datain_wire[7..7];
+	lutrama[8].portadatain[0..0] = datain_wire[8..8];
+	lutrama[9].portadatain[0..0] = datain_wire[9..9];
+	lutrama[10].portadatain[0..0] = datain_wire[10..10];
+	lutrama[11].portadatain[0..0] = datain_wire[11..11];
+	lutrama[12].portadatain[0..0] = datain_wire[12..12];
+	lutrama[13].portadatain[0..0] = datain_wire[13..13];
+	lutrama[14].portadatain[0..0] = datain_wire[14..14];
+	lutrama[15].portadatain[0..0] = datain_wire[15..15];
+	lutrama[16].portadatain[0..0] = datain_wire[16..16];
+	lutrama[17].portadatain[0..0] = datain_wire[17..17];
+	lutrama[18].portadatain[0..0] = datain_wire[18..18];
+	lutrama[19].portadatain[0..0] = datain_wire[19..19];
+	lutrama[20].portadatain[0..0] = datain_wire[20..20];
+	lutrama[21].portadatain[0..0] = datain_wire[21..21];
+	lutrama[22].portadatain[0..0] = datain_wire[22..22];
+	lutrama[23].portadatain[0..0] = datain_wire[23..23];
+	lutrama[23..0].portbaddr[5..0] = rdaddr_wire[5..0];
+	datain_wire[] = datain_reg[].q;
+	dataout_wire[] = lutrama[23..0].portbdataout[];
+	q[] = dataout_wire[];
+	rdaddr_wire[] = rdaddress[];
+	wr_en = wren;
+	wraddr_wire[] = wraddr_reg[].q;
+END;
+--VALID FILE

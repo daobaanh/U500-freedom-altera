@@ -1,0 +1,159 @@
+--lpm_mult CBX_DECLARE_ALL_CONNECTED_PORTS="OFF" DEVICE_FAMILY="Stratix IV" DSP_BLOCK_BALANCING="Auto" INPUT_A_IS_CONSTANT="NO" INPUT_B_IS_CONSTANT="NO" LPM_REPRESENTATION="SIGNED" LPM_WIDTHA=9 LPM_WIDTHB=65 LPM_WIDTHP=74 LPM_WIDTHS=1 MAXIMIZE_SPEED=5 dataa datab result CARRY_CHAIN="MANUAL" CARRY_CHAIN_LENGTH=48
+--VERSION_BEGIN 18.1 cbx_cycloneii 2018:09:12:13:04:24:SJ cbx_lpm_add_sub 2018:09:12:13:04:24:SJ cbx_lpm_mult 2018:09:12:13:04:24:SJ cbx_mgl 2018:09:12:13:10:36:SJ cbx_nadder 2018:09:12:13:04:24:SJ cbx_padd 2018:09:12:13:04:24:SJ cbx_stratix 2018:09:12:13:04:24:SJ cbx_stratixii 2018:09:12:13:04:24:SJ cbx_util_mgl 2018:09:12:13:04:24:SJ  VERSION_END
+
+
+-- Copyright (C) 2018  Intel Corporation. All rights reserved.
+--  Your use of Intel Corporation's design tools, logic functions 
+--  and other software and tools, and its AMPP partner logic 
+--  functions, and any output files from any of the foregoing 
+--  (including device programming or simulation files), and any 
+--  associated documentation or information are expressly subject 
+--  to the terms and conditions of the Intel Program License 
+--  Subscription Agreement, the Intel Quartus Prime License Agreement,
+--  the Intel FPGA IP License Agreement, or other applicable license
+--  agreement, including, without limitation, that your use is for
+--  the sole purpose of programming logic devices manufactured by
+--  Intel and sold by Intel or its authorized distributors.  Please
+--  refer to the applicable agreement for further details.
+
+
+FUNCTION soft (in)
+RETURNS ( out);
+FUNCTION stratixiv_mac_mult (aclr[3..0], clk[3..0], dataa[dataa_width-1..0], datab[datab_width-1..0], ena[3..0], signa, signb)
+WITH ( dataa_clear, dataa_clock, dataa_width, datab_clear, datab_clock, datab_width, scanouta_clear, scanouta_clock, signa_clear, signa_clock, signa_internally_grounded, signb_clear, signb_clock, signb_internally_grounded)
+RETURNS ( dataout[dataa_width+datab_width-1..0], scanouta[dataa_width-1..0]);
+FUNCTION stratixiv_mac_out (aclr[3..0], chainin[chainin_width-1..0], clk[3..0], dataa[dataa_width-1..0], datab[datab_width-1..0], datac[datac_width-1..0], datad[datad_width-1..0], ena[3..0], rotate, round, roundchainout, saturate, saturatechainout, shiftright, signa, signb, zeroacc, zerochainout, zeroloopback)
+WITH ( acc_adder_operation, chainin_width = 1, dataa_width = 1, datab_width = 1, datac_width = 1, datad_width = 1, dataout_width = 72, first_adder0_clear, first_adder0_clock, first_adder0_mode, first_adder1_clear, first_adder1_clock, first_adder1_mode, multa_signa_internally_grounded, multa_signb_internally_grounded, multb_signa_internally_grounded, multb_signb_internally_grounded, multc_signa_internally_grounded, multc_signb_internally_grounded, multd_signa_internally_grounded, multd_signb_internally_grounded, operation_mode, output_clear, output_clock, rotate_clear, rotate_clock, rotate_output_clear, rotate_output_clock, rotate_pipeline_clear, rotate_pipeline_clock, round_chain_out_mode, round_chain_out_width, round_clear, round_clock, round_mode, round_pipeline_clear, round_pipeline_clock, round_width, roundchainout_clear, roundchainout_clock, roundchainout_output_clear, roundchainout_output_clock, roundchainout_pipeline_clear, roundchainout_pipeline_clock, saturate_chain_out_mode, saturate_chain_out_width, saturate_clear, saturate_clock, saturate_mode, saturate_pipeline_clear, saturate_pipeline_clock, saturate_width, saturatechainout_clear, saturatechainout_clock, saturatechainout_output_clear, saturatechainout_output_clock, saturatechainout_pipeline_clear, saturatechainout_pipeline_clock, second_adder_clear, second_adder_clock, shiftright_clear, shiftright_clock, shiftright_output_clear, shiftright_output_clock, shiftright_pipeline_clear, shiftright_pipeline_clock, signa_clear, signa_clock, signa_pipeline_clear, signa_pipeline_clock, signb_clear, signb_clock, signb_pipeline_clear, signb_pipeline_clock, zeroacc_clear, zeroacc_clock, zeroacc_pipeline_clear, zeroacc_pipeline_clock, zerochainout_output_clear, zerochainout_output_clock, zeroloopback_clear, zeroloopback_clock, zeroloopback_output_clear, zeroloopback_output_clock, zeroloopback_pipeline_clear, zeroloopback_pipeline_clock)
+RETURNS ( dataout[dataout_width-1..0], dftout, loopbackout[17..0], overflow, saturatechainoutoverflow);
+
+--synthesis_resources = dsp_18bit 4 lut 114 
+SUBDESIGN mult_s1t
+( 
+	dataa[8..0]	:	input;
+	datab[64..0]	:	input;
+	result[73..0]	:	output;
+) 
+VARIABLE
+	add9_result[56..0]	:	WIRE;
+	sft10a[56..0] : soft;
+	sft11a[56..0] : soft;
+	sft12a[56..0] : soft;
+	sft13a[56..0] : soft;
+	mac_mult2 : stratixiv_mac_mult
+		WITH (
+			dataa_width = 9,
+			datab_width = 18
+		);
+	mac_mult4 : stratixiv_mac_mult
+		WITH (
+			dataa_width = 9,
+			datab_width = 18
+		);
+	mac_mult6 : stratixiv_mac_mult
+		WITH (
+			dataa_width = 9,
+			datab_width = 18
+		);
+	mac_mult8 : stratixiv_mac_mult
+		WITH (
+			dataa_width = 9,
+			datab_width = 11
+		);
+	mac_out1 : stratixiv_mac_out
+		WITH (
+			dataa_width = 27,
+			dataout_width = 72,
+			operation_mode = "output_only"
+		);
+	mac_out3 : stratixiv_mac_out
+		WITH (
+			dataa_width = 27,
+			dataout_width = 72,
+			operation_mode = "output_only"
+		);
+	mac_out5 : stratixiv_mac_out
+		WITH (
+			dataa_width = 27,
+			dataout_width = 72,
+			operation_mode = "output_only"
+		);
+	mac_out7 : stratixiv_mac_out
+		WITH (
+			dataa_width = 20,
+			dataout_width = 72,
+			operation_mode = "output_only"
+		);
+	aclr	: NODE;
+	clken	: NODE;
+	clock	: NODE;
+	w221w	: WIRE;
+	w223w	: WIRE;
+	w469w[74..0]	: WIRE;
+
+BEGIN 
+	add9_result[] = sft10a[].out + sft11a[].out + sft12a[].out;
+	sft10a[].in = ( w221w, ( (! mac_out7.dataout[19..19]), ( mac_out7.dataout[18..18], ( mac_out7.dataout[17..17], ( mac_out7.dataout[16..16], ( mac_out7.dataout[15..15], ( mac_out7.dataout[14..14], ( mac_out7.dataout[13..13], ( mac_out7.dataout[12..12], ( mac_out7.dataout[11..11], ( mac_out7.dataout[10..10], ( mac_out7.dataout[9..9], ( (! mac_out5.dataout[26..26]), ( mac_out5.dataout[25..25], ( mac_out5.dataout[24..24], ( mac_out5.dataout[23..23], ( mac_out5.dataout[22..22], ( mac_out5.dataout[21..21], ( mac_out5.dataout[20..20], ( mac_out5.dataout[19..19], ( mac_out5.dataout[18..18], ( mac_out5.dataout[17..17], ( mac_out5.dataout[16..16], ( mac_out5.dataout[15..15], ( mac_out5.dataout[14..14], ( mac_out5.dataout[13..13], ( mac_out5.dataout[12..12], ( mac_out5.dataout[11..11], ( mac_out5.dataout[10..10], ( mac_out5.dataout[9..9], ( (! mac_out3.dataout[26..26]), ( mac_out3.dataout[25..25], ( mac_out3.dataout[24..24], ( mac_out3.dataout[23..23], ( mac_out3.dataout[22..22], ( mac_out3.dataout[21..21], ( mac_out3.dataout[20..20], ( mac_out3.dataout[19..19], ( mac_out3.dataout[18..18], ( mac_out3.dataout[17..17], ( mac_out3.dataout[16..16], ( mac_out3.dataout[15..15], ( mac_out3.dataout[14..14], ( mac_out3.dataout[13..13], ( mac_out3.dataout[12..12], ( mac_out3.dataout[11..11], ( mac_out3.dataout[10..10], ( mac_out3.dataout[9..9], ( (! mac_out1.dataout[26..26]), ( mac_out1.dataout[25..25], ( mac_out1.dataout[24..24], ( mac_out1.dataout[23..23], ( mac_out1.dataout[22..22], ( mac_out1.dataout[21..21], ( mac_out1.dataout[20..20], ( mac_out1.dataout[19..18]))))))))))))))))))))))))))))))))))))))))))))))))))))))));
+	sft11a[].in = ( w223w, ( w223w, ( w221w, ( w221w, ( w221w, ( w221w, ( w221w, ( w221w, ( w221w, ( w221w, ( w221w, ( w221w, ( mac_out7.dataout[8..8], ( mac_out7.dataout[7..7], ( mac_out7.dataout[6..6], ( mac_out7.dataout[5..5], ( mac_out7.dataout[4..4], ( mac_out7.dataout[3..3], ( mac_out7.dataout[2..2], ( mac_out7.dataout[1..1], ( mac_out7.dataout[0..0], ( w221w, ( w221w, ( w221w, ( w221w, ( w221w, ( w221w, ( w221w, ( w221w, ( w221w, ( mac_out5.dataout[8..8], ( mac_out5.dataout[7..7], ( mac_out5.dataout[6..6], ( mac_out5.dataout[5..5], ( mac_out5.dataout[4..4], ( mac_out5.dataout[3..3], ( mac_out5.dataout[2..2], ( mac_out5.dataout[1..1], ( mac_out5.dataout[0..0], ( w221w, ( w221w, ( w221w, ( w221w, ( w221w, ( w221w, ( w221w, ( w221w, ( w221w, ( mac_out3.dataout[8..8], ( mac_out3.dataout[7..7], ( mac_out3.dataout[6..6], ( mac_out3.dataout[5..5], ( mac_out3.dataout[4..4], ( mac_out3.dataout[3..3], ( mac_out3.dataout[2..2], ( mac_out3.dataout[1..0]))))))))))))))))))))))))))))))))))))))))))))))))))))))));
+	sft12a[].in = ( w223w, ( w223w, ( w223w, ( w223w, ( w223w, ( w223w, ( w223w, ( w223w, ( w223w, ( w223w, ( w223w, ( w223w, ( w223w, ( w221w, ( w221w, ( w221w, ( w221w, ( w221w, ( w221w, ( w221w, ( w221w, ( w223w, ( w223w, ( w223w, ( w223w, ( w223w, ( w223w, ( w223w, ( w223w, ( w223w, ( w223w, ( w221w, ( w221w, ( w221w, ( w221w, ( w221w, ( w221w, ( w221w, ( w221w, ( w223w, ( w223w, ( w223w, ( w223w, ( w223w, ( w223w, ( w223w, ( w223w, ( w223w, ( w221w, ( w223w, ( w223w, ( w223w, ( w223w, ( w223w, ( w223w, ( w223w, w223w))))))))))))))))))))))))))))))))))))))))))))))))))))))));
+	sft13a[].in = add9_result[];
+	mac_mult2.aclr[] = aclr;
+	mac_mult2.clk[] = clock;
+	mac_mult2.dataa[] = ( dataa[8..0]);
+	mac_mult2.datab[] = ( datab[17..0]);
+	mac_mult2.ena[] = clken;
+	mac_mult2.signa = B"1";
+	mac_mult2.signb = B"0";
+	mac_mult4.aclr[] = aclr;
+	mac_mult4.clk[] = clock;
+	mac_mult4.dataa[] = ( dataa[8..0]);
+	mac_mult4.datab[] = ( datab[35..18]);
+	mac_mult4.ena[] = clken;
+	mac_mult4.signa = B"1";
+	mac_mult4.signb = B"0";
+	mac_mult6.aclr[] = aclr;
+	mac_mult6.clk[] = clock;
+	mac_mult6.dataa[] = ( dataa[8..0]);
+	mac_mult6.datab[] = ( datab[53..36]);
+	mac_mult6.ena[] = clken;
+	mac_mult6.signa = B"1";
+	mac_mult6.signb = B"0";
+	mac_mult8.aclr[] = aclr;
+	mac_mult8.clk[] = clock;
+	mac_mult8.dataa[] = ( dataa[8..0]);
+	mac_mult8.datab[] = ( datab[64..54]);
+	mac_mult8.ena[] = clken;
+	mac_mult8.signa = B"1";
+	mac_mult8.signb = B"1";
+	mac_out1.aclr[] = aclr;
+	mac_out1.clk[] = clock;
+	mac_out1.dataa[] = ( mac_mult2.dataout[26..0]);
+	mac_out1.ena[] = clken;
+	mac_out1.signa = B"1";
+	mac_out1.signb = B"0";
+	mac_out3.aclr[] = aclr;
+	mac_out3.clk[] = clock;
+	mac_out3.dataa[] = ( mac_mult4.dataout[26..0]);
+	mac_out3.ena[] = clken;
+	mac_out3.signa = B"1";
+	mac_out3.signb = B"0";
+	mac_out5.aclr[] = aclr;
+	mac_out5.clk[] = clock;
+	mac_out5.dataa[] = ( mac_mult6.dataout[26..0]);
+	mac_out5.ena[] = clken;
+	mac_out5.signa = B"1";
+	mac_out5.signb = B"0";
+	mac_out7.aclr[] = aclr;
+	mac_out7.clk[] = clock;
+	mac_out7.dataa[] = ( mac_mult8.dataout[19..0]);
+	mac_out7.ena[] = clken;
+	mac_out7.signa = B"1";
+	mac_out7.signb = B"1";
+	aclr = GND;
+	clken = VCC;
+	clock = GND;
+	result[73..0] = w469w[73..0];
+	w221w = B"1";
+	w223w = B"0";
+	w469w[] = ( sft13a[56..55].out, sft13a[54..53].out, sft13a[52..51].out, sft13a[50..49].out, sft13a[48..47].out, sft13a[46..45].out, sft13a[44..43].out, sft13a[42..41].out, sft13a[40..39].out, sft13a[38..37].out, sft13a[36..35].out, sft13a[34..33].out, sft13a[32..31].out, sft13a[30..29].out, sft13a[28..27].out, sft13a[26..25].out, sft13a[24..23].out, sft13a[22..21].out, sft13a[20..19].out, sft13a[18..17].out, sft13a[16..15].out, sft13a[14..13].out, sft13a[12..11].out, sft13a[10..9].out, sft13a[8..7].out, sft13a[6..5].out, sft13a[4..3].out, sft13a[2..1].out, sft13a[0..0].out, mac_out1.dataout[17..17], mac_out1.dataout[16..16], mac_out1.dataout[15..15], mac_out1.dataout[14..14], mac_out1.dataout[13..13], mac_out1.dataout[12..12], mac_out1.dataout[11..11], mac_out1.dataout[10..10], mac_out1.dataout[9..9], mac_out1.dataout[8..8], mac_out1.dataout[7..7], mac_out1.dataout[6..6], mac_out1.dataout[5..5], mac_out1.dataout[4..4], mac_out1.dataout[3..3], mac_out1.dataout[2..2], mac_out1.dataout[1..1], mac_out1.dataout[0..0]);
+END;
+--VALID FILE

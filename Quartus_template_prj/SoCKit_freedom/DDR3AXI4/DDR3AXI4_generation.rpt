@@ -1,0 +1,98 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate U:\2019\U500Freedom_Altera_SoCKit\SoCKit\SoCKit_freedom_v0.0\DDR3AXI4.qsys --block-symbol-file --output-directory=U:\2019\U500Freedom_Altera_SoCKit\SoCKit\SoCKit_freedom_v0.0\DDR3AXI4 --family="Cyclone V" --part=5CSXFC6D6F31C8ES
+Progress: Loading SoCKit_freedom_v0.0/DDR3AXI4.qsys
+Progress: Reading input file
+Progress: Adding clk_0 [clock_source 18.1]
+Progress: Parameterizing module clk_0
+Progress: Adding mem_if_ddr3_emif_0 [altera_mem_if_ddr3_emif 18.1]
+Progress: Parameterizing module mem_if_ddr3_emif_0
+Progress: Adding merlin_axi_translator_0 [altera_merlin_axi_translator 18.1]
+Progress: Parameterizing module merlin_axi_translator_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Warning: DDR3AXI4.mem_if_ddr3_emif_0: 'Quick' simulation modes are NOT timing accurate. Some simulation memory models may issue warnings or errors
+Warning: DDR3AXI4.mem_if_ddr3_emif_0.pll_bridge: pll_bridge.pll_sharing cannot be both connected and exported
+Warning: DDR3AXI4.mem_if_ddr3_emif_0: mem_if_ddr3_emif_0.status must be exported, or connected to a matching conduit.
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate U:\2019\U500Freedom_Altera_SoCKit\SoCKit\SoCKit_freedom_v0.0\DDR3AXI4.qsys --synthesis=VERILOG --output-directory=U:\2019\U500Freedom_Altera_SoCKit\SoCKit\SoCKit_freedom_v0.0\DDR3AXI4\synthesis --family="Cyclone V" --part=5CSXFC6D6F31C8ES
+Progress: Loading SoCKit_freedom_v0.0/DDR3AXI4.qsys
+Progress: Reading input file
+Progress: Adding clk_0 [clock_source 18.1]
+Progress: Parameterizing module clk_0
+Progress: Adding mem_if_ddr3_emif_0 [altera_mem_if_ddr3_emif 18.1]
+Progress: Parameterizing module mem_if_ddr3_emif_0
+Progress: Adding merlin_axi_translator_0 [altera_merlin_axi_translator 18.1]
+Progress: Parameterizing module merlin_axi_translator_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Warning: DDR3AXI4.mem_if_ddr3_emif_0: 'Quick' simulation modes are NOT timing accurate. Some simulation memory models may issue warnings or errors
+Warning: DDR3AXI4.mem_if_ddr3_emif_0.pll_bridge: pll_bridge.pll_sharing cannot be both connected and exported
+Warning: DDR3AXI4.mem_if_ddr3_emif_0: mem_if_ddr3_emif_0.status must be exported, or connected to a matching conduit.
+Info: DDR3AXI4: Generating DDR3AXI4 "DDR3AXI4" for QUARTUS_SYNTH
+Info: Interconnect is inserted between master merlin_axi_translator_0.m0 and slave mem_if_ddr3_emif_0.avl because the master is of type axi4 and the slave is of type avalon.
+Info: Interconnect is inserted between master merlin_axi_translator_0.m0 and slave mem_if_ddr3_emif_0.avl because they have different clock source.
+Info: Inserting clock-crossing logic between cmd_demux.src0 and cmd_mux.sink0
+Info: Inserting clock-crossing logic between cmd_demux_001.src0 and cmd_mux.sink1
+Info: Inserting clock-crossing logic between rsp_demux.src0 and rsp_mux.sink0
+Info: Inserting clock-crossing logic between rsp_demux.src1 and rsp_mux_001.sink0
+Info: mem_if_ddr3_emif_0: "DDR3AXI4" instantiated altera_mem_if_ddr3_emif "mem_if_ddr3_emif_0"
+Info: merlin_axi_translator_0: "DDR3AXI4" instantiated altera_merlin_axi_translator "merlin_axi_translator_0"
+Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
+Info: mm_interconnect_0: "DDR3AXI4" instantiated altera_mm_interconnect "mm_interconnect_0"
+Info: rst_controller: "DDR3AXI4" instantiated altera_reset_controller "rst_controller"
+Info: pll0: "mem_if_ddr3_emif_0" instantiated altera_mem_if_ddr3_pll "pll0"
+Info: p0: Generating clock pair generator
+Info: p0: Generating DDR3AXI4_mem_if_ddr3_emif_0_p0_altdqdqs
+Info: p0: 
+Info: p0: *****************************
+Info: p0: 
+Info: p0: Remember to run the DDR3AXI4_mem_if_ddr3_emif_0_p0_pin_assignments.tcl
+Info: p0: script after running Synthesis and before Fitting.
+Info: p0: 
+Info: p0: *****************************
+Info: p0: 
+Info: p0: "mem_if_ddr3_emif_0" instantiated altera_mem_if_ddr3_phy_core "p0"
+Info: m0: "mem_if_ddr3_emif_0" instantiated altera_mem_if_ddr3_afi_mux "m0"
+Info: s0: Generating Qsys sequencer system
+Info: s0: QSYS sequencer system generated successfully
+Info: s0: "mem_if_ddr3_emif_0" instantiated altera_mem_if_ddr3_qseq "s0"
+Info: c0: "mem_if_ddr3_emif_0" instantiated altera_mem_if_nextgen_ddr3_controller "c0"
+Info: oct0: "mem_if_ddr3_emif_0" instantiated altera_mem_if_oct "oct0"
+Info: dll0: "mem_if_ddr3_emif_0" instantiated altera_mem_if_dll "dll0"
+Info: mem_if_ddr3_emif_0_avl_translator: "mm_interconnect_0" instantiated altera_merlin_slave_translator "mem_if_ddr3_emif_0_avl_translator"
+Info: Reusing file U:/2019/U500Freedom_Altera_SoCKit/SoCKit/SoCKit_freedom_v0.0/DDR3AXI4/synthesis/submodules/altera_merlin_slave_translator.sv
+Info: merlin_axi_translator_0_m0_agent: "mm_interconnect_0" instantiated altera_merlin_axi_master_ni "merlin_axi_translator_0_m0_agent"
+Info: mem_if_ddr3_emif_0_avl_agent: "mm_interconnect_0" instantiated altera_merlin_slave_agent "mem_if_ddr3_emif_0_avl_agent"
+Info: Reusing file U:/2019/U500Freedom_Altera_SoCKit/SoCKit/SoCKit_freedom_v0.0/DDR3AXI4/synthesis/submodules/altera_merlin_slave_agent.sv
+Info: Reusing file U:/2019/U500Freedom_Altera_SoCKit/SoCKit/SoCKit_freedom_v0.0/DDR3AXI4/synthesis/submodules/altera_merlin_burst_uncompressor.sv
+Info: mem_if_ddr3_emif_0_avl_agent_rsp_fifo: "mm_interconnect_0" instantiated altera_avalon_sc_fifo "mem_if_ddr3_emif_0_avl_agent_rsp_fifo"
+Info: Reusing file U:/2019/U500Freedom_Altera_SoCKit/SoCKit/SoCKit_freedom_v0.0/DDR3AXI4/synthesis/submodules/altera_avalon_sc_fifo.v
+Info: router: "mm_interconnect_0" instantiated altera_merlin_router "router"
+Info: router_002: "mm_interconnect_0" instantiated altera_merlin_router "router_002"
+Info: mem_if_ddr3_emif_0_avl_burst_adapter: "mm_interconnect_0" instantiated altera_merlin_burst_adapter "mem_if_ddr3_emif_0_avl_burst_adapter"
+Info: Reusing file U:/2019/U500Freedom_Altera_SoCKit/SoCKit/SoCKit_freedom_v0.0/DDR3AXI4/synthesis/submodules/altera_merlin_address_alignment.sv
+Info: cmd_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: cmd_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: Reusing file U:/2019/U500Freedom_Altera_SoCKit/SoCKit/SoCKit_freedom_v0.0/DDR3AXI4/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux"
+Info: rsp_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: Reusing file U:/2019/U500Freedom_Altera_SoCKit/SoCKit/SoCKit_freedom_v0.0/DDR3AXI4/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: mem_if_ddr3_emif_0_avl_rsp_width_adapter: "mm_interconnect_0" instantiated altera_merlin_width_adapter "mem_if_ddr3_emif_0_avl_rsp_width_adapter"
+Info: Reusing file U:/2019/U500Freedom_Altera_SoCKit/SoCKit/SoCKit_freedom_v0.0/DDR3AXI4/synthesis/submodules/altera_merlin_address_alignment.sv
+Info: Reusing file U:/2019/U500Freedom_Altera_SoCKit/SoCKit/SoCKit_freedom_v0.0/DDR3AXI4/synthesis/submodules/altera_merlin_burst_uncompressor.sv
+Info: crosser: "mm_interconnect_0" instantiated altera_avalon_st_handshake_clock_crosser "crosser"
+Info: Reusing file U:/2019/U500Freedom_Altera_SoCKit/SoCKit/SoCKit_freedom_v0.0/DDR3AXI4/synthesis/submodules/altera_avalon_st_pipeline_base.v
+Info: avalon_st_adapter: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter"
+Info: ng0: "c0" instantiated altera_mem_if_nextgen_ddr3_controller_core "ng0"
+Info: a0: "c0" instantiated alt_mem_ddrx_mm_st_converter "a0"
+Info: error_adapter_0: "avalon_st_adapter" instantiated error_adapter "error_adapter_0"
+Info: DDR3AXI4: Done "DDR3AXI4" with 29 modules, 170 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis
